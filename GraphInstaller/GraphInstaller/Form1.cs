@@ -102,7 +102,7 @@ namespace GraphInstaller
                 string ProgramFile = csprojinfo.Directory + "\\Program.cs";
                 string IconFile = csprojinfo.Directory + "\\GraphIcon.ico";
                 string GraphDLLFile = exeinfo.Directory + "\\GraphDLL.dll";
-                string WMPLibFile = exeinfo.Directory + "\\Interop.WMPLib.dll";
+                //string WMPLibFile = exeinfo.Directory + "\\Interop.WMPLib.dll";
                 string MIDIFile = exeinfo.Directory + "\\Toub.Sound.Midi.dll";
                 string GraphKinectFile = exeinfo.Directory + "\\GraphKinect.dll";
                 string GraphDLLVersion = FileVersionInfo.GetVersionInfo(GraphDLLFile).FileVersion;
@@ -280,7 +280,7 @@ namespace GraphInstaller
                 if (kinect)
                 {
                     WriteLog("Copying GraphKinect.dll (v" + GraphKinectDLLVersion + ")...");
-                    File.Copy(WMPLibFile, csprojinfo.Directory + "\\bin\\Debug\\GraphKinect.dll", true);
+                    File.Copy(GraphKinectFile, csprojinfo.Directory + "\\bin\\Debug\\GraphKinect.dll", true);
                     WriteLog("[Done]\n");
                 }
 
