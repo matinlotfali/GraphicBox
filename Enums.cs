@@ -1,12 +1,5 @@
 ﻿namespace GraphDLL
 {
-    internal enum FuncTypes
-    {
-        wait, fullscreen, windowscreen,
-        showmouse, hidemouse, refresh, mouse3da,
-        close
-    }
-
     public enum FontStyle
     {
         Bold = System.Drawing.FontStyle.Bold,

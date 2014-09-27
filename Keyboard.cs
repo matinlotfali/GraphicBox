@@ -22,7 +22,10 @@ namespace GraphDLL
             delay(0);
             Graph.imediateDrawing = temp;
             GForm.ch = '\0';
-            GForm.activateNeeded = true;
+            Graph.form.Invoke((MethodInvoker)delegate
+            {
+                Graph.form.Activate();
+            });            
             while (GForm.ch == '\0') ;
             lastRefresh = DateTime.Now;
             return GForm.ch;
@@ -41,7 +44,10 @@ namespace GraphDLL
             delay(0);
             Graph.imediateDrawing = temp;
             GForm.key = Keys.None;
-            GForm.activateNeeded = true;
+            Graph.form.Invoke((MethodInvoker)delegate
+            {
+                Graph.form.Activate();
+            });
             while (GForm.key == Keys.None) ;
             lastRefresh = DateTime.Now;
             return GForm.key;

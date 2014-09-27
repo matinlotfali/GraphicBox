@@ -23,19 +23,9 @@ namespace GraphDLL
         public static bool LeftClick, RightClick, MiddleClick;
         public static char ch;
         public static Keys key;
-        public static System.Drawing.Bitmap showform;
-        public static bool refreshNeeded = true;
-        public static bool activateNeeded = true;
+        public static System.Drawing.Bitmap showform;        
 
-        public static FuncTypes type;
-
-        public static bool answered = false;
-
-        public static void SetFunc(FuncTypes functype)
-        {
-            answered = false;
-            type = functype;
-        }
+        public static bool answered = false;        
 
         public KeyMessageFilter myKeys;
         public GForm()
@@ -60,27 +50,8 @@ namespace GraphDLL
                     windowScreen();
             }
 
-
             if (!answered)
-            {
-                switch (type)
-                {
-                    case FuncTypes.refresh: RefreshBitmap(); break;
-                    case FuncTypes.showmouse: Cursor.Show(); break;
-                    case FuncTypes.hidemouse: Cursor.Hide(); break;
-                }
                 answered = true;
-            }
-            if (type == FuncTypes.close)
-                Close();
-            if (refreshNeeded)
-                RefreshBitmap();
-
-            if (activateNeeded || Graph.imediateDrawing)
-            {
-                Activate();
-                activateNeeded = false;
-            }
         }
 
         private void GForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -96,19 +67,12 @@ namespace GraphDLL
             Environment.Exit(0);
         }
 
-        void RefreshBitmap()
-        {
-            pictureBox1.Image = showform;
-            refreshNeeded = false;
-            pictureBox1.Update();
-        }
-
         void fullscreen()
         {
             if (!_fullScreen)
-            {                
+            {
                 if (User32.CResolution(Graph.width, Graph.height, out devmod))
-                {                    
+                {
                     FormBorderStyle = FormBorderStyle.None;
                     WindowState = FormWindowState.Maximized;
                     _fullScreen = true;
@@ -117,12 +81,12 @@ namespace GraphDLL
                     fullScreen = false;
             }
         }
-        
+
         static DEVMODE1 devmod;
         void windowScreen()
         {
             if (_fullScreen)
-            {                
+            {
                 if (User32.CResolution(ref devmod))
                 {
                     _fullScreen = false;

@@ -7,7 +7,7 @@ namespace GraphDLL
     public static partial class Graph
     {
         public static void getmouse(out int x, out int y, out int click)
-        {            
+        {
             x = GForm.MouseX;
             y = GForm.MouseY;
             click = GForm.LeftClick ? 1 : GForm.RightClick ? 2 : GForm.MiddleClick ? 3 : 0;
@@ -15,22 +15,26 @@ namespace GraphDLL
 
         public static void showMouse()
         {
-            GForm.SetFunc(FuncTypes.showmouse);
-            while (!GForm.answered) ;
-            Graph.showmouse = true;
+            Graph.form.Invoke((MethodInvoker)delegate
+            {
+                Cursor.Show();
+                Graph.showmouse = true;
+            });
         }
 
         public static void hidemouse()
         {
-            GForm.SetFunc(FuncTypes.hidemouse);
-            while (!GForm.answered) ;
-            Graph.showmouse = false;
+            Graph.form.Invoke((MethodInvoker)delegate
+            {
+                Cursor.Hide();
+                Graph.showmouse = false;
+            });
         }
     }
 
     public delegate bool GetMouse3D(out int x, out int y, out int z);
     public static partial class Graph3d
-    {        
+    {
 
         internal static int MouseX, MouseY, MouseZ;
         static int centerX, centerY;

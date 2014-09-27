@@ -47,8 +47,7 @@ namespace GraphDLL
             if (skipLogo)
                 initwithlogo();
 
-            myThread.Start();
-            GForm.SetFunc(FuncTypes.wait);
+            myThread.Start();            
             while (!GForm.answered) ;
             GForm.MouseX = Width / 2;
             GForm.MouseY = Height / 2;
@@ -153,31 +152,50 @@ namespace GraphDLL
                 Graph3d.DrawMouse();
 
                 if (Graph.bitmap != null)
+                {
                     GForm.showform = (System.Drawing.Bitmap)Graph.bitmap.SysDraw.Clone();
-                GForm.refreshNeeded = true;
+
+                    Graph.form.Invoke((MethodInvoker)delegate
+                    {
+                        Graph.form.pictureBox1.Image = GForm.showform;
+                        Graph.form.pictureBox1.Update();
+                        if (Graph.imediateDrawing)
+                        {
+                            Graph.form.Activate();
+                            GForm.answered = true;
+                        }                        
+                    });
+                }
+
                 GC.Collect();
 
                 if (Graph.imediateDrawing)
-                {
-                    GForm.SetFunc(FuncTypes.refresh);
                     while (!GForm.answered) ;
-                }
 
                 Graph.bitmap.SysDraw = (System.Drawing.Bitmap)behindmouse0.Clone();
             }
             else
             {
                 if (Graph.bitmap != null)
+                {
                     GForm.showform = (System.Drawing.Bitmap)Graph.bitmap.SysDraw.Clone();
 
-                GForm.refreshNeeded = true;
+                    Graph.form.Invoke((MethodInvoker)delegate
+                    {
+                        Graph.form.pictureBox1.Image = GForm.showform;
+                        Graph.form.pictureBox1.Update();
+                        if (Graph.imediateDrawing)
+                        {
+                            Graph.form.Activate();
+                            GForm.answered = true;
+                        }                        
+                    });
+                }
+
                 GC.Collect();
 
                 if (Graph.imediateDrawing)
-                {
-                    GForm.SetFunc(FuncTypes.refresh);
                     while (!GForm.answered) ;
-                }
             }
 
 
@@ -188,12 +206,12 @@ namespace GraphDLL
             {
                 TimeSpan temp;
                 DateTime until = lastRefresh.AddMilliseconds(milisecound);
-                //temp = time - (DateTime.Now - lastRefresh);
-                //if (temp > TimeSpan.Zero)
-                //    Thread.Sleep(temp);
-                do
-                    temp = until - DateTime.Now;
-                while (temp.Ticks > 5000);
+                temp = until - DateTime.Now;
+                if (temp > TimeSpan.Zero)
+                    Thread.Sleep(temp);
+                //do
+                //temp = until - DateTime.Now;
+                //while (temp.Ticks > 5000);
             }
             MSPF = (DateTime.Now - lastRefresh).TotalMilliseconds;
             lastRefresh = DateTime.Now;
@@ -231,7 +249,10 @@ namespace GraphDLL
 
         public static void closegraph()
         {
-            GForm.SetFunc(FuncTypes.close);
+            Graph.form.Invoke((MethodInvoker)delegate
+            {
+                Graph.form.Close();
+            });
         }
 
         public static void fullscreen()
@@ -257,7 +278,10 @@ namespace GraphDLL
             string r = "";
             char cursor = '\0';
             GForm.ch = '\0';
-            GForm.activateNeeded = true;
+            Graph.form.Invoke((MethodInvoker)delegate
+            {
+                Graph.form.Activate();
+            });
             while (true)
             {
                 char ch = GForm.ch;
@@ -381,7 +405,7 @@ namespace GraphDLL
                 bool imediateDrawing = Graph.imediateDrawing;
                 Graph.imediateDrawing = false;
                 byte[] pixels = Graph.bitmap.Pixels;
-                Queue<Point> queue = new Queue<Point>(Graph.width * Graph.height);               
+                Queue<Point> queue = new Queue<Point>(Graph.width * Graph.height);
                 queue.Enqueue(new Point(x, y));
                 do
                 {
