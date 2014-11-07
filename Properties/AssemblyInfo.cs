@@ -11,7 +11,7 @@ using System.Resources;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("by Matin Lotfali")]
 [assembly: AssemblyProduct("Graphic Box")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,6 +33,6 @@ using System.Resources;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("4.5")]
-[assembly: AssemblyFileVersion("4.5")]
+[assembly: AssemblyVersion("4.6")]
+[assembly: AssemblyFileVersion("4.6")]
 [assembly: NeutralResourcesLanguageAttribute("en")]

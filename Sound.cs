@@ -70,10 +70,8 @@ namespace GraphDLL
 
         public static void playwave(string wavepath)
         {
-            node p = Queues.SearchFile(wavepath);
-            if (p.data == null)
-                p.data = new SoundPlayer(wavepath);
-            ((SoundPlayer)(p.data)).Play();
+            SoundPlayer s = new SoundPlayer(wavepath);
+            s.Play();
         }
 
         public static void sound(string note)

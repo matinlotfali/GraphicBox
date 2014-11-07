@@ -16,7 +16,7 @@ namespace GraphDLL
 
         public static void image(int x0, int y0, int z0, int Xsize, int Xfi, int Xteta, int Ysize, int Yfi, int Yteta, Bitmap image)
         {
-            image = Queues.SearchPicture(image, Xsize, Ysize);
+            //image = Queues.SearchPicture(image, Xsize, Ysize);
             _drawImage(x0, y0, z0, Xsize, Xfi, Xteta, Ysize, Yfi, Yteta, image, Graph.bitmap.Pixels);
         }
 

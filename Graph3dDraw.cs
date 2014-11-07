@@ -367,18 +367,21 @@ namespace GraphDLL
             _to2Da(x, y + (int)Graph.font.Size, z, out xp1, out xp2, out yp2);
             Font font = new Font(Graph.font.Name, (int)(yp2 - yp) + 1, Graph.font.Style, GraphicsUnit.Pixel);
 
-            node p = Queues.SearchTexts(s, font);
-            Bitmap pic = null;
-            if (p.data == null)
-            {
-                SizeF size = Graphics.FromImage(Graph.bitmap.SysDraw).MeasureString(s, font);
-                p.data = new Bitmap((int)size.Width, (int)size.Height);
-                pic = (Bitmap)p.data;
-                Graphics.FromImage(pic.SysDraw).DrawString(s, font, Graph.brush, 0, 0);
-            }
-            else
-                pic = (Bitmap)p.data;
+            //node p = Queues.SearchTexts(s, font);
+            //Bitmap pic = null;
+            //if (p.data == null)
+            //{
+            //    SizeF size = Graphics.FromImage(Graph.bitmap.SysDraw).MeasureString(s, font);
+            //    p.data = new Bitmap((int)size.Width, (int)size.Height);
+            //    pic = (Bitmap)p.data;
+            //    Graphics.FromImage(pic.SysDraw).DrawString(s, font, Graph.brush, 0, 0);
+            //}
+            //else
+            //    pic = (Bitmap)p.data;
 
+            SizeF size = Graphics.FromImage(Graph.bitmap.SysDraw).MeasureString(s, font);
+            Bitmap pic = new Bitmap((int)size.Width, (int)size.Height);
+            Graphics.FromImage(pic.SysDraw).DrawString(s, font, Graph.brush, 0, 0);
             Graph3dImage._drawImage(x, y, z, pic.Width, 90, angle, pic.Height, 90, angle - 90, pic, Graph.bitmap.Pixels);
         }
 

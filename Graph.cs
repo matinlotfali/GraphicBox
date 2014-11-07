@@ -47,7 +47,7 @@ namespace GraphDLL
             if (skipLogo)
                 initwithlogo();
 
-            myThread.Start();            
+            myThread.Start();
             while (!GForm.answered) ;
             GForm.MouseX = Width / 2;
             GForm.MouseY = Height / 2;
@@ -163,7 +163,7 @@ namespace GraphDLL
                         {
                             Graph.form.Activate();
                             GForm.answered = true;
-                        }                        
+                        }
                     });
                 }
 
@@ -188,7 +188,7 @@ namespace GraphDLL
                         {
                             Graph.form.Activate();
                             GForm.answered = true;
-                        }                        
+                        }
                     });
                 }
 
@@ -503,31 +503,40 @@ namespace GraphDLL
             if (!File.Exists(filepath))
                 throw new FileNotFoundException();
 
-            node f = Queues.SearchFile(filepath);
-            if (f.data == null)
-                f.data = new Bitmap(filepath);
-            Bitmap pic = (Bitmap)f.data;
-
+            //node f = Queues.SearchFile(filepath);
+            //if (f.data == null)
+            //    f.data = new Bitmap(filepath);
+            //Bitmap pic = (Bitmap)f.data;
+            Bitmap pic = new Bitmap(filepath);
             Graphics.FromImage(bitmap.SysDraw).DrawImage(pic.SysDraw, x, y);
             if (Graph.imediateDrawing) delay(0);
         }
         public static void image(string filepath, int x1, int y1, int x2, int y2)
         {
+            if (!File.Exists(filepath))
+                throw new FileNotFoundException();
+
             int w = x2 - x1 + 1;
             int h = y2 - y1 + 1;
 
-            node f = Queues.SearchFile(filepath);
-            if (f.data == null)
-                f.data = new Bitmap(filepath);
+            //node f = Queues.SearchFile(filepath);
+            //if (f.data == null)
+            //    f.data = new Bitmap(filepath);
 
-            putimage((Bitmap)f.data, x1, y1, w, h);
+            //putimage((Bitmap)f.data, x1, y1, w, h);
+            Bitmap pic = new Bitmap(filepath);
+            putimage(pic, x1, y1, w, h);
         }
         public static void image(string filePath, int x, int y, int width, int height, int angle)
         {
-            node f = Queues.SearchFile(filePath);
-            if (f.data == null)
-                f.data = new Bitmap(filePath);
-            Bitmap pic = (Bitmap)f.data;
+            if (!File.Exists(filePath))
+                throw new FileNotFoundException();
+
+            //node f = Queues.SearchFile(filePath);
+            //if (f.data == null)
+            //    f.data = new Bitmap(filePath);
+            //Bitmap pic = (Bitmap)f.data;
+            Bitmap pic = new Bitmap(filePath);
 
             System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(bitmap.SysDraw);
             g.TranslateTransform(x, y);
@@ -544,8 +553,8 @@ namespace GraphDLL
         }
         public static void putimage(Bitmap image, int x, int y, int width, int height)
         {
-            Bitmap pic = Queues.SearchPicture(image, width, height);
-            Graphics.FromImage(bitmap.SysDraw).DrawImage(pic.SysDraw, x, y);
+            //Bitmap pic = Queues.SearchPicture(image, width, height);            
+            Graphics.FromImage(bitmap.SysDraw).DrawImage(image.SysDraw, x, y, width, height);
             if (Graph.imediateDrawing) delay(0);
         }
 
