@@ -130,12 +130,14 @@ namespace GraphDLL
 
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
+            Graph.mouseInsideForm = false;
             if (!Graph.showmouse)
                 Cursor.Show();
         }
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
+            Graph.mouseInsideForm = true;
             if (!Graph.showmouse)
                 Cursor.Hide();
         }

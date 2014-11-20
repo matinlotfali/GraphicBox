@@ -6,11 +6,13 @@ namespace GraphDLL
 {
     public static partial class Graph
     {
-        public static void getmouse(out int x, out int y, out int click)
+        internal static bool mouseInsideForm = false;
+        public static bool getmouse(out int x, out int y, out int click)
         {
             x = GForm.MouseX;
             y = GForm.MouseY;
             click = GForm.LeftClick ? 1 : GForm.RightClick ? 2 : GForm.MiddleClick ? 3 : 0;
+            return mouseInsideForm;
         }
 
         public static void showMouse()
