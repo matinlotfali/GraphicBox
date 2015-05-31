@@ -27,7 +27,7 @@ namespace GraphDLL
         }
 
         #region shapes
-        private static void _line(int x1, int y1, int x2, int y2, bool Left, byte[] dest)
+        private static void _line(int x1, int y1, int x2, int y2, bool Left, Bitmap dest)
         {
             if (Math.Abs(x2 - x1) > Math.Abs(y2 - y1))
             {
@@ -49,33 +49,33 @@ namespace GraphDLL
             }
         }
 
-        private static void _pixel(bool Left, int i, int j, byte[] dest)
+        private static void _pixel(bool Left, int i, int j, Bitmap dest)
         {
             switch (Graph3d.glass)
             {
                 case Glass.None:
-                    Bitmap.SetPixel(i, j, Graph.color, dest, Graph.width, Graph.height);
+                    dest.SetPixel(i, j);
                     break;
                 case Glass.Anaglyph:
                     Color anaglyph = Left ?
                         AnaglyphLeft(Graph.color, j, dest, i) :
                         AnaglyphRight(Graph.color, j, dest, i);
-                    Bitmap.SetPixel(i, j, anaglyph, dest, Graph.width, Graph.height);
+                    dest.SetPixel(i, j, anaglyph);
                     break;
                 case Glass.TV3D:
                     if (!Left)
                     {
                         if (i < Graph.width)
-                            Bitmap.SetPixel(i / 2, j, Graph.color, dest, Graph.width, Graph.height);
+                            dest.SetPixel(i / 2, j);
                     }
                     else
                         if (i >= 0)
-                            Bitmap.SetPixel((i + Graph.width) / 2, j, Graph.color, dest, Graph.width, Graph.height);
+                            dest.SetPixel((i + Graph.width) / 2, j);
                     break;
             }
         }
 
-        public static void line(int x1m, int y1m, int z1m, int x2m, int y2m, int z2m, byte[] dest)
+        public static void line(int x1m, int y1m, int z1m, int x2m, int y2m, int z2m, Bitmap dest)
         {
             double x1p1, x2p1, yp1, x1p2, x2p2, yp2;
             if (Graph3d.glass == Glass.None)
@@ -101,10 +101,10 @@ namespace GraphDLL
             int num4 = Convert.ToInt32(r2 * Math.Sin(f2 * Math.PI / 180.0) * Math.Cos(-t2 * Math.PI / 180.0));
             int num5 = Convert.ToInt32(r2 * Math.Sin(f2 * Math.PI / 180.0) * Math.Sin(-t2 * Math.PI / 180.0));
             int num6 = Convert.ToInt32(r2 * Math.Cos(f2 * Math.PI / 180.0));
-            line(x0, y0, z0, x0 + num, y0 + num2, z0 + num3, Graph.bitmap.Pixels);
-            line(x0, y0, z0, x0 + num4, y0 + num5, z0 + num6, Graph.bitmap.Pixels);
-            line(x0 + num, y0 + num2, z0 + num3, x0 + num + num4, y0 + num2 + num5, z0 + num3 + num6, Graph.bitmap.Pixels);
-            line(x0 + num4, y0 + num5, z0 + num6, x0 + num + num4, y0 + num2 + num5, z0 + num3 + num6, Graph.bitmap.Pixels);
+            line(x0, y0, z0, x0 + num, y0 + num2, z0 + num3, Graph.bitmap);
+            line(x0, y0, z0, x0 + num4, y0 + num5, z0 + num6, Graph.bitmap);
+            line(x0 + num, y0 + num2, z0 + num3, x0 + num + num4, y0 + num2 + num5, z0 + num3 + num6, Graph.bitmap);
+            line(x0 + num4, y0 + num5, z0 + num6, x0 + num + num4, y0 + num2 + num5, z0 + num3 + num6, Graph.bitmap);
         }
 
         public static void fillrectangle(int x0, int y0, int z0, int r1, int f1, int t1, int r2, int f2, int t2)
@@ -124,15 +124,15 @@ namespace GraphDLL
                 int x = Convert.ToInt32(x1 * i + x0);
                 int y = Convert.ToInt32(y1 * i + y0);
                 int z = Convert.ToInt32(z1 * i + z0);
-                line(x, y, z, x + x2, y + y2, z + z2, Graph.bitmap.Pixels);
+                line(x, y, z, x + x2, y + y2, z + z2, Graph.bitmap);
                 x = Convert.ToInt32(x2 * i + x0);
                 y = Convert.ToInt32(y2 * i + y0);
                 z = Convert.ToInt32(z2 * i + z0);
-                line(x, y, z, x + x1, y + y1, z + z1, Graph.bitmap.Pixels);
+                line(x, y, z, x + x1, y + y1, z + z1, Graph.bitmap);
             }
         }
 
-        public static void ellipse(int x0, int y0, int z0, int startangle, int endangle, int r1, int f1, int t1, int r2, int f2, int t2, byte[] pixels)
+        public static void ellipse(int x0, int y0, int z0, int startangle, int endangle, int r1, int f1, int t1, int r2, int f2, int t2, Bitmap pixels)
         {
             int num10 = 0;
             int num11 = 0;
@@ -254,7 +254,7 @@ namespace GraphDLL
                     int num15 = Convert.ToInt32(num5 + num6);
                     if (num29 == 1)
                     {
-                        line(x0 + num13, y0 + num14, z0 + num15, x0 + num10, y0 + num11, z0 + num12, Graph.bitmap.Pixels);
+                        line(x0 + num13, y0 + num14, z0 + num15, x0 + num10, y0 + num11, z0 + num12, Graph.bitmap);
                     }
                     else
                     {
@@ -271,7 +271,7 @@ namespace GraphDLL
         {
             int threadCount = 10;
             Thread[] threads = new Thread[threadCount - 1];
-            byte[] pixels = Graph.bitmap.Pixels;
+            Bitmap pixels = Graph.bitmap;
             double delta = 180 / threadCount;
             int i = 0;
             for (; i < threadCount - 1; i++)
@@ -288,7 +288,7 @@ namespace GraphDLL
         {
             object[] o = (object[])param;
             int x0 = (int)o[0], y0 = (int)o[1], z0 = (int)o[2], r = (int)o[3], from = (int)o[4], to = (int)o[5];
-            byte[] pixels = (byte[])o[6];
+            Bitmap pixels = (Bitmap)o[6];
             for (int i = from; i >= to; i -= 750 / r)
             {
                 ellipse(x0, y0, z0, 0, 180, r, 90, 0, r, 90 + i, -90, pixels);
@@ -297,38 +297,38 @@ namespace GraphDLL
         }
         #endregion
 
-        public static void putpixel(int xm, int ym, int zm, Color color, byte[] pixels, int w, int h)
+        public static void putpixel(int xm, int ym, int zm, Color color, Bitmap pixels)
         {
             double x1p, x2p, yp;
             switch (Graph3d.glass)
             {
                 case Glass.None:
                     _to2D(xm, ym, zm, out x1p, out yp);
-                    Bitmap.SetPixel((int)x1p, (int)yp, color, pixels, w, h);
+                    pixels.SetPixel((int)x1p, (int)yp, color);
                     return;
 
                 case Glass.Anaglyph:
                     _to2Da(xm, ym, zm, out x1p, out x2p, out yp);
                     Color anaglyph = AnaglyphLeft(color, (int)yp, pixels, (int)x1p);
-                    Bitmap.SetPixel((int)x1p, (int)yp, anaglyph, pixels, w, h);
+                    pixels.SetPixel((int)x1p, (int)yp, anaglyph);
 
                     anaglyph = AnaglyphRight(color, (int)yp, pixels, (int)x2p);
-                    Bitmap.SetPixel((int)x2p, (int)yp, anaglyph, pixels, w, h);
+                    pixels.SetPixel((int)x2p, (int)yp, anaglyph);
                     return;
 
                 case Glass.TV3D:
                     _to2Da(xm, ym, zm, out x1p, out x2p, out yp);
                     if (x1p < Graph.width)
-                        Bitmap.SetPixel((int)(x2p / 2), (int)yp, color, pixels, w, h);
+                        pixels.SetPixel((int)(x2p / 2), (int)yp, color);
                     if (x2p >= 0)
-                        Bitmap.SetPixel((int)((x1p + Graph.width) / 2), (int)yp, color, pixels, w, h);
+                        pixels.SetPixel((int)((x1p + Graph.width) / 2), (int)yp, color);
                     break;
             }
         }
 
-        public static Color AnaglyphLeft(Color color, int y, byte[] background, int i)
+        public static Color AnaglyphLeft(Color color, int y, Bitmap background, int i)
         {
-            Color back = Bitmap.GetPixel(i, y, background, Graph.width, Graph.height);
+            Color back = background.GetPixel(i, y);
             switch (Method)
             {
                 case AnaglyphMethod.Color:
@@ -340,9 +340,9 @@ namespace GraphDLL
             }
         }
 
-        public static Color AnaglyphRight(Color color, int y, byte[] background, int i)
+        public static Color AnaglyphRight(Color color, int y, Bitmap background, int i)
         {
-            Color back = Bitmap.GetPixel(i, y, background, Graph.width, Graph.height);
+            Color back = background.GetPixel(i, y);
             switch (Method)
             {
                 case AnaglyphMethod.True:
@@ -354,9 +354,9 @@ namespace GraphDLL
             }
         }
 
-        public static void putpixel(int xm, int ym, int zm, byte[] pixels, int w, int h)
+        public static void putpixel(int xm, int ym, int zm, Bitmap pixels)
         {
-            putpixel(xm, ym, zm, Graph.color, pixels, w, h);
+            putpixel(xm, ym, zm, Graph.color, pixels);
         }
 
 
@@ -382,7 +382,7 @@ namespace GraphDLL
             SizeF size = Graphics.FromImage(Graph.bitmap.SysDraw).MeasureString(s, font);
             Bitmap pic = new Bitmap((int)size.Width, (int)size.Height);
             Graphics.FromImage(pic.SysDraw).DrawString(s, font, Graph.brush, 0, 0);
-            Graph3dImage._drawImage(x, y, z, pic.Width, 90, angle, pic.Height, 90, angle - 90, pic, Graph.bitmap.Pixels);
+            Graph3dImage._drawImage(x, y, z, pic.Width, 90, angle, pic.Height, 90, angle - 90, pic, Graph.bitmap);
         }
 
         public static void outtextxy(int x, int y, int z, string s)

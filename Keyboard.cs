@@ -21,14 +21,14 @@ namespace GraphDLL
             Graph.imediateDrawing = true;
             delay(0);
             Graph.imediateDrawing = temp;
-            GForm.ch = '\0';
+            GForm2.ch = '\0';
             Graph.form.Invoke((MethodInvoker)delegate
             {
                 Graph.form.Activate();
             });            
-            while (GForm.ch == '\0') ;
+            while (GForm2.ch == '\0') ;
             lastRefresh = DateTime.Now;
-            return GForm.ch;
+            return GForm2.ch;
         }
         public static char getche()
         {
@@ -43,14 +43,14 @@ namespace GraphDLL
             Graph.imediateDrawing = true;
             delay(0);
             Graph.imediateDrawing = temp;
-            GForm.key = Keys.None;
+            GForm2.key = Keys.None;
             Graph.form.Invoke((MethodInvoker)delegate
             {
                 Graph.form.Activate();
             });
-            while (GForm.key == Keys.None) ;
+            while (GForm2.key == Keys.None) ;
             lastRefresh = DateTime.Now;
-            return GForm.key;
+            return GForm2.key;
         }
     }    
 }

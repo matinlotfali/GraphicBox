@@ -12,7 +12,7 @@ namespace GraphDLL
 {
     public static partial class Graph
     {
-        internal static GForm form;
+        internal static GForm2 form;
         internal static Color color = Color.White;
         internal static SolidBrush brush = new SolidBrush(System.Drawing.Color.White);
         internal static Pen pen = new Pen(color.SysDraw);
@@ -35,7 +35,7 @@ namespace GraphDLL
         private static Thread myThread = new Thread(MakeForm);
         private static void MakeForm()
         {
-            form = new GForm();
+            form = new GForm2();
             Application.Run(form);
         }
 
@@ -48,9 +48,10 @@ namespace GraphDLL
                 initwithlogo();
 
             myThread.Start();
-            while (!GForm.answered) ;
-            GForm.MouseX = Width / 2;
-            GForm.MouseY = Height / 2;
+            while (!GForm2.answered) ;
+            form.Invoke((MethodInvoker)delegate { form.Activate(); });
+            GForm2.MouseX = Width / 2;
+            GForm2.MouseY = Height / 2;
             if (!skipLogo)
                 showLogo();
 
@@ -86,7 +87,7 @@ namespace GraphDLL
             if (y < 0) y = 0;
 
             hidemouse();
-            if (GForm.fullScreen)
+            if (GForm2.fullScreen)
                 delay(1500);
             else
                 delay(250);
@@ -142,60 +143,32 @@ namespace GraphDLL
             delay(0);
         }
 
+        static Semaphore semaphore = new Semaphore(0, 1);
         public static void delay(int milisecound)
         {
-            System.Drawing.Bitmap behindmouse0 = null;
-
-            if (Graph3d.mouse3da && Graph3d.MouseX != -1)
+            if (bitmap != null)
             {
-                behindmouse0 = (System.Drawing.Bitmap)Graph.bitmap.SysDraw.Clone();
-                Graph3d.DrawMouse();
+                System.Drawing.Bitmap imageToShow = (System.Drawing.Bitmap)bitmap.SysDraw.Clone();
 
-                if (Graph.bitmap != null)
+                if (Graph3d.mouse3da && Graph3d.MouseX != -1)
                 {
-                    GForm.showform = (System.Drawing.Bitmap)Graph.bitmap.SysDraw.Clone();
-
-                    Graph.form.Invoke((MethodInvoker)delegate
-                    {
-                        Graph.form.pictureBox1.Image = GForm.showform;
-                        Graph.form.pictureBox1.Update();
-                        if (Graph.imediateDrawing)
-                        {
-                            Graph.form.Activate();
-                            GForm.answered = true;
-                        }
-                    });
+                    Bitmap temp = new Bitmap(imageToShow);
+                    Graph3d.DrawMouse(temp);
                 }
 
-                GC.Collect();
-
-                if (Graph.imediateDrawing)
-                    while (!GForm.answered) ;
-
-                Graph.bitmap.SysDraw = (System.Drawing.Bitmap)behindmouse0.Clone();
-            }
-            else
-            {
-                if (Graph.bitmap != null)
+                form.BeginInvoke((MethodInvoker)delegate
                 {
-                    GForm.showform = (System.Drawing.Bitmap)Graph.bitmap.SysDraw.Clone();
-
-                    Graph.form.Invoke((MethodInvoker)delegate
+                    form.pictureBox1.Image = imageToShow;
+                    if (imediateDrawing)
                     {
-                        Graph.form.pictureBox1.Image = GForm.showform;
-                        Graph.form.pictureBox1.Update();
-                        if (Graph.imediateDrawing)
-                        {
-                            Graph.form.Activate();
-                            GForm.answered = true;
-                        }
-                    });
-                }
+                        form.pictureBox1.Update();
+                        form.Activate();
+                        semaphore.Release();
+                    }
+                });
 
-                GC.Collect();
-
-                if (Graph.imediateDrawing)
-                    while (!GForm.answered) ;
+                if (imediateDrawing)
+                    semaphore.WaitOne();
             }
 
 
@@ -239,12 +212,12 @@ namespace GraphDLL
         public static void trace()
         {
             Graph.imediateDrawing = true;
-            while (!GForm.answered) ;
+            while (!GForm2.answered) ;
         }
         public static void notrace()
         {
             Graph.imediateDrawing = false;
-            while (!GForm.answered) ;
+            while (!GForm2.answered) ;
         }
 
         public static void closegraph()
@@ -257,12 +230,12 @@ namespace GraphDLL
 
         public static void fullscreen()
         {
-            GForm.fullScreen = true;
+            GForm2.fullScreen = true;
         }
 
         public static void windowscreen()
         {
-            GForm.fullScreen = false;
+            GForm2.fullScreen = false;
         }
 
         public static void skiplogo()
@@ -277,14 +250,14 @@ namespace GraphDLL
             System.Drawing.Bitmap bg = (System.Drawing.Bitmap)Graph.bitmap.SysDraw.Clone();
             string r = "";
             char cursor = '\0';
-            GForm.ch = '\0';
+            GForm2.ch = '\0';
             Graph.form.Invoke((MethodInvoker)delegate
             {
                 Graph.form.Activate();
             });
             while (true)
             {
-                char ch = GForm.ch;
+                char ch = GForm2.ch;
                 switch (ch)
                 {
                     case '\0':
@@ -305,7 +278,7 @@ namespace GraphDLL
                         _intextxy(x, y, r, cursor, bg, f);
                         break;
                 }
-                GForm.ch = '\0';
+                GForm2.ch = '\0';
 
                 if ((DateTime.Now - t).TotalMilliseconds > 500)
                 {
@@ -404,7 +377,7 @@ namespace GraphDLL
             {
                 bool imediateDrawing = Graph.imediateDrawing;
                 Graph.imediateDrawing = false;
-                byte[] pixels = Graph.bitmap.Pixels;
+                Bitmap bitmap = Graph.bitmap;
                 Queue<Point> queue = new Queue<Point>(Graph.width * Graph.height);
                 queue.Enqueue(new Point(x, y));
                 do
@@ -412,28 +385,28 @@ namespace GraphDLL
                     Point p = queue.Dequeue();
                     x = p.X;
                     y = p.Y;
-                    if (Bitmap.GetPixel(x, y, pixels, Graph.width, Graph.height) != Graph.color)
+                    if (bitmap.GetPixel(x, y) != Graph.color)
                     {
                         int num = x;
                         int num2 = x;
                         while (num > 0)
                         {
-                            if (Bitmap.GetPixel(num - 1, y, pixels, Graph.width, Graph.height) != border)
+                            if (bitmap.GetPixel(num - 1, y) != border)
                                 num--;
                             else break;
                         }
                         while (num2 + 1 < Graph.width)
                         {
-                            if (Bitmap.GetPixel(num2 + 1, y, pixels, Graph.width, Graph.height) != border)
+                            if (bitmap.GetPixel(num2 + 1, y) != border)
                                 num2++;
                             else break;
                         }
                         for (int i = num; i <= num2; i++)
                         {
-                            Bitmap.SetPixel(i, y, Graph.color, pixels, Graph.width, Graph.height);
-                            if (!((y <= 0) || Bitmap.GetPixel(i, y - 1, pixels, Graph.width, Graph.height) == border))
+                            bitmap.SetPixel(i, y, Graph.color);
+                            if (!((y <= 0) || bitmap.GetPixel(i, y - 1) == border))
                                 queue.Enqueue(new Point(i, y - 1));
-                            if (!(((y + 1) >= Graph.height) || Bitmap.GetPixel(i, y - 1, pixels, Graph.width, Graph.height) == border))
+                            if (!(((y + 1) >= Graph.height) || bitmap.GetPixel(i, y - 1) == border))
                                 queue.Enqueue(new Point(i, y + 1));
                         }
                     }

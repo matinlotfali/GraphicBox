@@ -60,13 +60,13 @@ namespace GraphDLL
         }
         public static void putpixel(int x, int y, int z, Color c)
         {
-            putpixel(x, y, z, c, Graph.bitmap.Pixels, Graph.width, Graph.height);
+            putpixel(x, y, z, c, Graph.bitmap);
         }
-        public static void putpixel(int x, int y, int z, Color c, byte[] pixels, int w, int h)
+        public static void putpixel(int x, int y, int z, Color c, Bitmap pixels)
         {
             bool temp = Graph.imediateDrawing;
             Graph.imediateDrawing = false;
-            Graph3dDraw.putpixel(x, y, z, c, pixels, w, h);
+            Graph3dDraw.putpixel(x, y, z, c, pixels);
             Graph.imediateDrawing = temp;
             if (Graph.imediateDrawing) Graph.delay(0);
         }
@@ -75,7 +75,7 @@ namespace GraphDLL
         {
             bool temp = Graph.imediateDrawing;
             Graph.imediateDrawing = false;
-            Graph3dDraw.line(x1m, y1m, z1m, x2m, y2m, z2m, Graph.bitmap.Pixels);
+            Graph3dDraw.line(x1m, y1m, z1m, x2m, y2m, z2m, Graph.bitmap);
             Graph.imediateDrawing = temp;
             if (Graph.imediateDrawing) Graph.delay(0);
         }
@@ -185,7 +185,7 @@ namespace GraphDLL
         {
             bool temp = Graph.imediateDrawing;
             Graph.imediateDrawing = false;
-            Graph3dDraw.ellipse(x0, y0, z0, startangle, endangle, r1, f1, t1, r2, f2, t2, Graph.bitmap.Pixels);
+            Graph3dDraw.ellipse(x0, y0, z0, startangle, endangle, r1, f1, t1, r2, f2, t2, Graph.bitmap);
             Graph.imediateDrawing = temp;
             if (Graph.imediateDrawing) Graph.delay(0);
         }

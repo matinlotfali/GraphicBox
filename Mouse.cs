@@ -9,9 +9,9 @@ namespace GraphDLL
         internal static bool mouseInsideForm = false;
         public static bool getmouse(out int x, out int y, out int click)
         {
-            x = GForm.MouseX;
-            y = GForm.MouseY;
-            click = GForm.LeftClick ? 1 : GForm.RightClick ? 2 : GForm.MiddleClick ? 3 : 0;
+            x = GForm2.MouseX;
+            y = GForm2.MouseY;
+            click = GForm2.LeftClick ? 1 : GForm2.RightClick ? 2 : GForm2.MiddleClick ? 3 : 0;
             return mouseInsideForm;
         }
 
@@ -56,7 +56,7 @@ namespace GraphDLL
 
             int tempX = MouseX, tempY = MouseY, tempZ = MouseZ;
 
-            if (GForm.RightClick)
+            if (GForm2.RightClick)
                 tempZ -= Cursor.Position.Y - centerY;
             else
                 tempY += Cursor.Position.Y - centerY;
@@ -79,7 +79,7 @@ namespace GraphDLL
             z = MouseZ;
             x = MouseX;
             y = MouseY;
-            return GForm.LeftClick;
+            return GForm2.LeftClick;
         }
 
         public static void initmouse()
@@ -129,9 +129,9 @@ namespace GraphDLL
             return pic;
         }
 
-        internal static void DrawMouse()
+        internal static void DrawMouse(Bitmap dest)
         {
-            Graph3dImage.image(MouseX, MouseY, MouseZ, mouseCursor.Width, 90, 0, mouseCursor.Height, 90, -90, mouseCursor);
+            Graph3dImage._drawImage(MouseX, MouseY, MouseZ, mouseCursor.Width, 90, 0, mouseCursor.Height, 90, -90, mouseCursor, dest);
         }
     }
 }

@@ -9,18 +9,17 @@ namespace GraphDLL
 {
     static class Graph3dStereoImage
     {
-        static Bitmap _image;
-        static byte[] dest, src;
+        static Bitmap dest, src;
         static int x0, y0, z0;
         static double AX, BX, CX, AY, BY, CY, _fill_lines;
 
         public static void image(int x0, int y0, int z0, int Xsize, int Xfi, int Xteta, int Ysize, int Yfi, int Yteta, Bitmap image)
         {
             //image = Queues.SearchPicture(image, Xsize, Ysize);
-            _drawImage(x0, y0, z0, Xsize, Xfi, Xteta, Ysize, Yfi, Yteta, image, Graph.bitmap.Pixels);
+            _drawImage(x0, y0, z0, Xsize, Xfi, Xteta, Ysize, Yfi, Yteta, image, Graph.bitmap);
         }
 
-        public static void _drawImage(int x0, int y0, int z0, int Xsize, int Xfi, int Xteta, int Ysize, int Yfi, int Yteta, Bitmap image, byte[] dest)
+        public static void _drawImage(int x0, int y0, int z0, int Xsize, int Xfi, int Xteta, int Ysize, int Yfi, int Yteta, Bitmap image, Bitmap dest)
         {
             double x1p0, x2p0, yp0, x1p1, x2p1, yp1;
             double XTeta = -Xteta * Math.PI / 180;
@@ -50,8 +49,7 @@ namespace GraphDLL
             _fill_lines = (dx1 > dx2) ? dx1 : dx2;
             _fill_lines *= 1.2;
 
-            Graph3dStereoImage._image = image;
-            Graph3dStereoImage.src = image.Pixels;
+            Graph3dStereoImage.src = image;
             Graph3dStereoImage.dest = dest;
             Graph3dStereoImage.x0 = x0;
             Graph3dStereoImage.y0 = y0;
@@ -105,7 +103,7 @@ namespace GraphDLL
 
         private static void lineImageDraw(double x1, double y1, double x2, double y2, bool Left, double time)
         {
-            int Xsize = _image.Width / 2;
+            int Xsize = src.Width / 2;
             if (Math.Abs(x2 - x1) > Math.Abs(y2 - y1))
             {
                 if (x1 > x2) { double t = x2; x2 = x1; x1 = t; t = y2; y2 = y1; y1 = t; }
@@ -114,10 +112,10 @@ namespace GraphDLL
                     double j = y1 + (y2 - y1) * (i - x1) / (x2 - x1);
 
                     double z = (i - x1) * Xsize / (x2 - x1);
-                    double k = time * _image.Height / _fill_lines;
+                    double k = time * src.Height / _fill_lines;
                     Color c = Left ?
-                        Bitmap.GetPixel((int)z, (int)k, src, _image.Width, _image.Height) :
-                        Bitmap.GetPixel((int)z + Xsize, (int)k, src, _image.Width, _image.Height);
+                        src.GetPixel((int)z, (int)k) :
+                        src.GetPixel((int)z + Xsize, (int)k);
                     drawPixel(Left, i, j, c);
                 }
             }
@@ -128,11 +126,11 @@ namespace GraphDLL
                 {
                     double i = x1 + (x2 - x1) * (j - y1) / (y2 - y1);
 
-                    double z = time * _image.Height / _fill_lines;
-                    double k = (j - y1) * _image.Width / (y2 - y1);
+                    double z = time * src.Height / _fill_lines;
+                    double k = (j - y1) * src.Width / (y2 - y1);
                     Color c = Left ?
-                        Bitmap.GetPixel((int)k, (int)z, src, _image.Width, _image.Height) :
-                        Bitmap.GetPixel((int)k + Xsize, (int)z, src, _image.Width, _image.Height);
+                        src.GetPixel((int)k, (int)z) :
+                        src.GetPixel((int)k + Xsize, (int)z);
                     drawPixel(Left, i, j, c);
                 }
             }
@@ -145,13 +143,13 @@ namespace GraphDLL
                 {
                     case Glass.None:
                         Color back = Graph.getpixel((int)i, (int)j);
-                        Bitmap.SetPixel((int)i, (int)j, Color.PutAonB(c, back), dest, Graph.width, Graph.height);
+                        dest.SetPixel((int)i, (int)j, Color.PutAonB(c, back));
                         break;
                     case Glass.Anaglyph:
                         Color anaglyph = Left ?
-                            Graph3dDraw.AnaglyphLeft(c, (int)j, Graph.bitmap.Pixels, (int)i) :
-                            Graph3dDraw.AnaglyphRight(c, (int)j, Graph.bitmap.Pixels, (int)i);
-                        Bitmap.SetPixel((int)i, (int)j, anaglyph, dest, Graph.width, Graph.height);
+                            Graph3dDraw.AnaglyphLeft(c, (int)j, Graph.bitmap, (int)i) :
+                            Graph3dDraw.AnaglyphRight(c, (int)j, Graph.bitmap, (int)i);
+                        dest.SetPixel((int)i, (int)j, anaglyph);
                         break;
                     case Glass.TV3D:
                         if (!Left)
@@ -159,7 +157,7 @@ namespace GraphDLL
                             if (i < Graph.width)
                             {
                                 back = Graph.getpixel((int)(i / 2), (int)j);
-                                Bitmap.SetPixel((int)(i / 2), (int)j, Color.PutAonB(c, back), dest, Graph.width, Graph.height);
+                                dest.SetPixel((int)(i / 2), (int)j, Color.PutAonB(c, back));
                             }
                         }
                         else
@@ -167,7 +165,7 @@ namespace GraphDLL
                             if (i >= 0)
                             {
                                 back = Graph.getpixel((int)((i + Graph.width) / 2), (int)j);
-                                Bitmap.SetPixel((int)((i + Graph.width) / 2), (int)j, Color.PutAonB(c, back), dest, Graph.width, Graph.height);
+                                dest.SetPixel((int)((i + Graph.width) / 2), (int)j, Color.PutAonB(c, back));
                             }
                         }
                         break;

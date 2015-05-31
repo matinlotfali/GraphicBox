@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace GraphDLL
 {
-    internal sealed partial class GForm : Form
+    internal sealed partial class GForm2 : Form
     {
         public const string by = "Matin Lotfali";
         public const string name = "Graphic Box";
@@ -23,12 +23,12 @@ namespace GraphDLL
         public static bool LeftClick, RightClick, MiddleClick;
         public static char ch;
         public static Keys key;
-        public static System.Drawing.Bitmap showform;        
+        //public static System.Drawing.Bitmap showform;        
 
         public static bool answered = false;        
 
         public KeyMessageFilter myKeys;
-        public GForm()
+        public GForm2()
         {
             InitializeComponent();
 
@@ -104,17 +104,17 @@ namespace GraphDLL
         {
             double c = (double)pictureBox1.Height / Graph.height;
             int l = (int)(pictureBox1.Width - c * Graph.width) / 2;
-            GForm.MouseX = (int)((e.X - l) / c);
-            GForm.MouseY = (int)(e.Y / c);
+            GForm2.MouseX = (int)((e.X - l) / c);
+            GForm2.MouseY = (int)(e.Y / c);
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             switch (e.Button)
             {
-                case MouseButtons.Left: GForm.LeftClick = true; break;
-                case MouseButtons.Right: GForm.RightClick = true; break;
-                case MouseButtons.Middle: GForm.MiddleClick = true; break;
+                case MouseButtons.Left: GForm2.LeftClick = true; break;
+                case MouseButtons.Right: GForm2.RightClick = true; break;
+                case MouseButtons.Middle: GForm2.MiddleClick = true; break;
             }
         }
 
@@ -122,9 +122,9 @@ namespace GraphDLL
         {
             switch (e.Button)
             {
-                case MouseButtons.Left: GForm.LeftClick = false; break;
-                case MouseButtons.Right: GForm.RightClick = false; break;
-                case MouseButtons.Middle: GForm.MiddleClick = false; break;
+                case MouseButtons.Left: GForm2.LeftClick = false; break;
+                case MouseButtons.Right: GForm2.RightClick = false; break;
+                case MouseButtons.Middle: GForm2.MiddleClick = false; break;
             }
         }
 
@@ -145,12 +145,12 @@ namespace GraphDLL
         #region Keyboard
         private void GForm_KeyPress(object sender, KeyPressEventArgs e)
         {
-            GForm.ch = e.KeyChar;
+            GForm2.ch = e.KeyChar;
         }
 
         private void GForm_KeyDown(object sender, KeyEventArgs e)
         {
-            GForm.key = e.KeyCode;
+            GForm2.key = e.KeyCode;
 
             if (e.Alt && e.KeyCode == Keys.Enter)
             {
