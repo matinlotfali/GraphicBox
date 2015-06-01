@@ -148,17 +148,27 @@ namespace GraphDLL
         {
             if (bitmap != null)
             {
-                System.Drawing.Bitmap imageToShow = (System.Drawing.Bitmap)bitmap.SysDraw.Clone();
+                byte[] bytesToShow = (byte[])bitmap.Pixels.Clone();
 
+                Bitmap temp = null;
                 if (Graph3d.mouse3da && Graph3d.MouseX != -1)
                 {
-                    Bitmap temp = new Bitmap(imageToShow);
-                    Graph3d.DrawMouse(temp);
+                    temp = new Bitmap(width, height);
+                    temp.Pixels = bytesToShow;
+                    Graph3d.DrawMouse(bitmap);
+                    bytesToShow = (byte[])bitmap.Pixels.Clone();
                 }
 
                 form.BeginInvoke((MethodInvoker)delegate
                 {
-                    form.pictureBox1.Image = imageToShow;
+                    Image p = form.pictureBox1.Image;
+
+                    Bitmap bitmapToShow = new Bitmap(width, height);
+                    bitmapToShow.Pixels = bytesToShow;
+                    form.pictureBox1.Image = bitmapToShow.SysDraw;
+
+                    if (p != null)
+                        p.Dispose();
                     if (imediateDrawing)
                     {
                         form.pictureBox1.Update();
@@ -166,6 +176,9 @@ namespace GraphDLL
                         semaphore.Release();
                     }
                 });
+
+                if (temp != null)
+                    bitmap.Pixels = temp.Pixels;
 
                 if (imediateDrawing)
                     semaphore.WaitOne();

@@ -6,13 +6,13 @@ using System.Drawing.Imaging;
 
 namespace GraphDLL
 {
-    public sealed unsafe class Bitmap
+    public sealed class Bitmap
     {
         private BitmapData bitmapData = null;
-        //private IntPtr Iptr = IntPtr.Zero;
+        private IntPtr Iptr = IntPtr.Zero;
         private Rectangle rect;
         private System.Drawing.Bitmap bitmap;
-        //private byte* pixels;
+        private byte[] pixels;
 
         public int Depth { get; private set; }
         public int Height { get; private set; }
@@ -34,19 +34,19 @@ namespace GraphDLL
             }
         }
 
-        public byte* Pixels
+        public byte[] Pixels
         {
             get
             {
                 LockBits();
-                return (byte*)bitmapData.Scan0;
+                return pixels;
             }
 
-            //set
-            //{
-            //    LockBits();
-            //    pixels = value;
-            //}
+            set
+            {
+                LockBits();
+                pixels = value;
+            }
         }
 
         public Bitmap(string file)
@@ -89,21 +89,20 @@ namespace GraphDLL
                 Graphics.FromImage(temp).DrawImage(SysDraw, 0, 0, Width, Height);
                 bitmap = temp;
             }
+            pixels = new byte[Width * Height * 4];
             rect = new System.Drawing.Rectangle(0, 0, Width, Height);
             isLocked = false;
         }
 
-        object locked = new object();
         private void LockBits()
         {
-            lock (locked)
-                if (!isLocked)
-                {
-                    bitmapData = bitmap.LockBits(this.rect, ImageLockMode.ReadWrite, bitmap.PixelFormat);
-                    //Iptr = bitmapData.Scan0;
-                    //Marshal.Copy(Iptr, pixels, 0, pixels.Length);
-                    isLocked = true;
-                }
+            if (!isLocked)
+            {
+                bitmapData = bitmap.LockBits(this.rect, ImageLockMode.ReadWrite, bitmap.PixelFormat);
+                Iptr = bitmapData.Scan0;
+                Marshal.Copy(Iptr, pixels, 0, pixels.Length);
+                isLocked = true;
+            }
         }
 
 
@@ -111,15 +110,18 @@ namespace GraphDLL
         public void SetPixel(int x, int y, Color color)
         {
             LockBits();
-            if (x >= 0 && y >= 0 && x < Width && y < Height)
-            {
-                //int index = ((y * Width) + x) * 4;
-                byte* pixels = (byte*)bitmapData.Scan0 + (y * bitmapData.Stride);
-                SetPixel(x * 4, color, pixels);
-            }
+            SetPixel(x, y, color, pixels, Width, Height);
         }
 
-        private static unsafe void SetPixel(int index, Color color, byte* pixels)
+        public static void SetPixel(int x, int y, Color color, byte[] pixels, int Width, int Height)
+        {
+            if (x >= 0 && y >= 0 && x < Width && y < Height)
+            {
+                int index = ((y * Width) + x) * 4;
+                SetPixel(index, color, pixels);
+            }
+        }
+        private static void SetPixel(int index, Color color, byte[] pixels)
         {
             pixels[index] = color.b;
             pixels[index + 1] = color.g;
@@ -130,30 +132,31 @@ namespace GraphDLL
         public Color GetPixel(int x, int y)
         {
             LockBits();
-            if (x >= 0 && y >= 0 && x < Width && y < Height)
-            {
-                //int index = ((y * Width) + x) * 4;
-                byte* pixels = (byte*)bitmapData.Scan0 + (y * bitmapData.Stride);
-                return GetPixel(x * 4, pixels);
-            }
-            return Color.Black;
-            //return GetPixel(x, y, pixels, Width, Height);
+            return GetPixel(x, y, pixels, Width, Height);
         }
 
-        public static Color GetPixel(int index, byte* pixels)
+        public static Color GetPixel(int x, int y, byte[] pixels, int Width, int Height)
+        {
+            if (x >= 0 && y >= 0 && x < Width && y < Height)
+            {
+                int index = ((y * Width) + x) * 4;
+                return GetPixel(index, pixels);
+            }
+            return Color.Black;
+        }
+        public static Color GetPixel(int index, byte[] pixels)
         {
             return Color.FromARGB(pixels[index + 3], pixels[index + 2], pixels[index + 1], pixels[index]);
         }
 
         private void UnlockBits()
         {
-            lock (locked)
-                if (isLocked)
-                {
-                    //Marshal.Copy(pixels, 0, Iptr, pixels.Length);
-                    bitmap.UnlockBits(bitmapData);
-                    isLocked = false;
-                }
+            if (isLocked)
+            {
+                Marshal.Copy(pixels, 0, Iptr, pixels.Length);
+                bitmap.UnlockBits(bitmapData);
+                isLocked = false;
+            }
         }
 
         public void Save(string file)
@@ -163,18 +166,14 @@ namespace GraphDLL
 
         public void Transparent(Color c)
         {
-            int len = Width * Height * 4;
-            byte* pixels = (byte*)bitmapData.Scan0;
-            for (int i = 0; i < len; i++)
+            for (int i = 0; i < pixels.Length; i++)
                 if (GetPixel(i, pixels) == c)
                     SetPixel(i, Color.FromARGB(0, 0, 0, 0), pixels);
         }
 
         public void Transparent(Color c, byte telorance)
         {
-            int len = Width * Height * 4;
-            byte* pixels = (byte*)bitmapData.Scan0;
-            for (int i = 0; i < len; i++)
+            for (int i = 0; i < pixels.Length; i++)
             {
                 Color back = GetPixel(i, pixels);
                 if (Math.Pow(back.a - c.a, 2) + Math.Pow(back.r - c.r, 2) + Math.Pow(back.g - c.g, 2) + Math.Pow(back.b - c.b, 2) <= telorance * telorance)
@@ -185,10 +184,7 @@ namespace GraphDLL
         public Bitmap Opacity(double opacity)
         {
             Bitmap pic = new Bitmap(bitmap);
-            int len = Width * Height * 4;
-            LockBits();
-            byte* pixels = (byte*)bitmapData.Scan0;
-            for (int i = 3; i < len; i += 4)
+            for (int i = 3; i < Pixels.Length; i += 4)
                 if (Pixels[i] != 0)
                     pic.Pixels[i] = (byte)(opacity * pic.Pixels[i] / 100);
             return pic;
@@ -198,36 +194,38 @@ namespace GraphDLL
         {
             Bitmap result = new Bitmap(Width / 2, Height);
 
-            //if (LeftEyeIsLeft)
-            //{
-            //    for (int i = 0; i < Width / 2; i++)
-            //        for (int j = 0; j < Height; j++)
-            //        {
-            //            Color c = GetPixel(i, j);
-            //            c = Graph3dDraw.AnaglyphLeft(c, j, result.pixels, i);
-            //            result.SetPixel(i, j, c);
+            if (LeftEyeIsLeft)
+            {
+                for (int i = 0; i < Width / 2; i++)
+                    for (int j = 0; j < Height; j++)
+                    {
+                        Color c = GetPixel(i, j);
+                        c = Graph3dDraw.AnaglyphLeft(c, j, result, i);
+                        result.SetPixel(i, j, c);
 
-            //            c = GetPixel(i + Width / 2, j);
-            //            c = Graph3dDraw.AnaglyphRight(c, j, result.pixels, i);
-            //            result.SetPixel(i, j, c);
-            //        }
-            //}
-            //else
-            //{
-            //    for (int i = 0; i < Width / 2; i++)
-            //        for (int j = 0; j < Height; j++)
-            //        {
-            //            Color c = GetPixel(i, j);
-            //            c = Graph3dDraw.AnaglyphRight(c, j, result.pixels, i);
-            //            result.SetPixel(i, j, c);
+                        c = GetPixel(i + Width / 2, j);
+                        c = Graph3dDraw.AnaglyphRight(c, j, result, i);
+                        result.SetPixel(i, j, c);
+                    }
+            }
+            else
+            {
+                for (int i = 0; i < Width / 2; i++)
+                    for (int j = 0; j < Height; j++)
+                    {
+                        Color c = GetPixel(i, j);
+                        c = Graph3dDraw.AnaglyphRight(c, j, result, i);
+                        result.SetPixel(i, j, c);
 
-            //            c = GetPixel(i + Width / 2, j);
-            //            c = Graph3dDraw.AnaglyphLeft(c, j, result.pixels, i);
-            //            result.SetPixel(i, j, c);
-            //        }
-            //}
+                        c = GetPixel(i + Width / 2, j);
+                        c = Graph3dDraw.AnaglyphLeft(c, j, result, i);
+                        result.SetPixel(i, j, c);
+                    }
+            }
 
             return result;
         }
     }
 }
+
+
