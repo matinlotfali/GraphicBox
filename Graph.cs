@@ -195,9 +195,6 @@ namespace GraphDLL
                 temp = until - DateTime.Now;
                 if (temp > TimeSpan.Zero)
                     Thread.Sleep(temp);
-                //do
-                //temp = until - DateTime.Now;
-                //while (temp.Ticks > 5000);
             }
             MSPF = (DateTime.Now - lastRefresh).TotalMilliseconds;
             lastRefresh = DateTime.Now;

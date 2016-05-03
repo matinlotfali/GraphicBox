@@ -74,13 +74,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Color.cs" />
-    <Compile Include="GForm.xaml.cs">
-      <DependentUpon>GForm.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Graph3dStereoImage.cs" />
     <Compile Include="Enums.cs" />
-    <Compile Include="FileQueue.cs" />
-    <Compile Include="GForm2.cs" />
+    <Compile Include="GForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GForm2.Designer.cs">
       <DependentUpon>GForm2.cs</DependentUpon>
     </Compile>
@@ -156,12 +154,6 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="GForm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
