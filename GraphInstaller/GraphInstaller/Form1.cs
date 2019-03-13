@@ -11,7 +11,7 @@ namespace GraphInstaller
 {
     enum VisualStudio
     {
-        vs2008, vs2010, vs2012, vs2013
+        vs2008, vs2010, vs2012, vs2013, other
     }
 
     public partial class Form1 : Form
@@ -37,60 +37,63 @@ namespace GraphInstaller
                 label1.Text = "";
                 WriteLog("Checking the installation....");
                 string csprojFile;
-
-                string ProjectsDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Visual Studio 2013\\Projects\\";
-                if (Directory.Exists(ProjectsDir))
-                    vsVersion = VisualStudio.vs2013;
-                else
-                {
-                    ProjectsDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Visual Studio 2012\\Projects\\";
-                    if (Directory.Exists(ProjectsDir))
-                        vsVersion = VisualStudio.vs2012;
-                    else
-                    {
-                        ProjectsDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Visual Studio 2010\\Projects\\";
-                        if (Directory.Exists(ProjectsDir))
-                            vsVersion = VisualStudio.vs2010;
-                        else
-                        {
-                            ProjectsDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Visual Studio 2008\\Projects\\";
-                            if (Directory.Exists(ProjectsDir))
-                                vsVersion = VisualStudio.vs2008;
-                            else
-                                throw new Exception("Can not find the projects directory.");
-                        }
-                    }
-                }
-
-                switch (vsVersion)
-                {
-                    case VisualStudio.vs2010:
-                        WriteLog("\n    Visual Studio 2010 detected!"); break;
-                    case VisualStudio.vs2008:
-                        WriteLog("\n    Visual Studio 2008 detected!"); break;
-                    case VisualStudio.vs2012:
-                        WriteLog("\n    Visual Studio 2012 detected!"); break;
-                    case VisualStudio.vs2013:
-                        WriteLog("\n    Visual Studio 2013 detected!"); break;
-                }
-
-
-                bool kinect = checkBox1.Checked;
                 bool install = true;
+                bool kinect = checkBox1.Checked;
                 DialogResult r;
-                if (Directory.Exists(ProjectsDir + textBox2.Text))
-                {
-                    r = MessageBox.Show("The project name already exists!\nThis will install GraphDLL on it.\nConfirm?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (r == DialogResult.OK)
-                        install = false;
-                    else
-                    {
-                        WriteLog("\n\n[Installation Canceled!]");
-                        return;
-                    }
-                }
+
                 if (radioButton1.Checked)
                 {
+                    string ProjectsDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Visual Studio 2013\\Projects\\";
+                    if (Directory.Exists(ProjectsDir))
+                        vsVersion = VisualStudio.vs2013;
+                    else
+                    {
+                        ProjectsDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Visual Studio 2012\\Projects\\";
+                        if (Directory.Exists(ProjectsDir))
+                            vsVersion = VisualStudio.vs2012;
+                        else
+                        {
+                            ProjectsDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Visual Studio 2010\\Projects\\";
+                            if (Directory.Exists(ProjectsDir))
+                                vsVersion = VisualStudio.vs2010;
+                            else
+                            {
+                                ProjectsDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Visual Studio 2008\\Projects\\";
+                                if (Directory.Exists(ProjectsDir))
+                                    vsVersion = VisualStudio.vs2008;
+                                else
+                                {
+                                    ProjectsDir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\";
+                                    vsVersion = VisualStudio.other;
+                                }
+                            }
+                        }
+                    }
+
+                    switch (vsVersion)
+                    {
+                        case VisualStudio.vs2010:
+                            WriteLog("\n    Visual Studio 2010 detected!"); break;
+                        case VisualStudio.vs2008:
+                            WriteLog("\n    Visual Studio 2008 detected!"); break;
+                        case VisualStudio.vs2012:
+                            WriteLog("\n    Visual Studio 2012 detected!"); break;
+                        case VisualStudio.vs2013:
+                            WriteLog("\n    Visual Studio 2013 detected!"); break;
+                    }
+
+                    if (Directory.Exists(ProjectsDir + textBox2.Text))
+                    {
+                        r = MessageBox.Show("The project name already exists!\nThis will install GraphDLL on it.\nConfirm?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        if (r == DialogResult.OK)
+                            install = false;
+                        else
+                        {
+                            WriteLog("\n\n[Installation Canceled!]");
+                            return;
+                        }
+                    }
+
                     if (install)
                         CreateProject(textBox2.Text, ProjectsDir + textBox2.Text + "\\");
                     csprojFile = ProjectsDir + textBox2.Text + "\\" + textBox2.Text + "\\" + textBox2.Text + ".csproj";
@@ -121,12 +124,13 @@ namespace GraphInstaller
                 while (!reader.EndOfStream)
                 {
                     lines = reader.ReadLine();
-                    if (lines == "    <Optimize>false</Optimize>")
-                    {
-                        writer.WriteLine("    <Optimize>true</Optimize>");
-                        WriteLog("    Optimize activated!\n");
-                    }
-                    else if (lines == "  <PropertyGroup>")
+                    //if (lines == "    <Optimize>false</Optimize>")
+                    //{
+                    //    writer.WriteLine("    <Optimize>true</Optimize>");
+                    //    WriteLog("    Optimize activated!\n");
+                    //}
+                    //else 
+                    if (lines == "  <PropertyGroup>")
                     {
                         writer.WriteLine(lines);
                         lines = reader.ReadLine();
@@ -170,7 +174,8 @@ namespace GraphInstaller
                     {
                         SysDraw = true;
                         WriteLog("    System.Drawing found!\n");
-                    } if (lines == "    <Reference Include=" + '"' + "GraphDLL" + '"' + ">")
+                    }
+                    if (lines == "    <Reference Include=" + '"' + "GraphDLL" + '"' + ">")
                     {
                         GraphDLL = true;
                         WriteLog("    GraphDLL found!\n");
@@ -397,6 +402,7 @@ namespace GraphInstaller
                 case VisualStudio.vs2010:
                 case VisualStudio.vs2012:
                 case VisualStudio.vs2013:
+                case VisualStudio.other:
                     WriteLog("[Done]\nCreating a new project...");
                     file = Path + name + ".sln";
                     Directory.CreateDirectory(Path);
