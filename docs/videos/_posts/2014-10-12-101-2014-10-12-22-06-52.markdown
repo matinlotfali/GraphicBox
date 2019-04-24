@@ -1,0 +1,12 @@
+---
+layout: post
+title: مصاحبه با شبکه چهارم سیما
+joomla_id: 101
+joomla_url: 2014-10-12-22-06-52
+date: 2014-10-12 22:06:52.000000000 -07:00
+---
+<p style="text-align: center;">
+	<a href="http://hw2.asset.aparat.com/aparat-video/0d3b31f4fbe41875e4b01bff86e17fb71677609.mp4">دانلود ویدئو</a>
+	<br>
+	<iframe src="http://www.aparat.com/video/video/embed/videohash/bcJPV/vt/frame" width="640" height="360"></iframe>
+</p>

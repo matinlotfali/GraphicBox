@@ -1,0 +1,19 @@
+---
+layout: page
+---      
+{{ content }}
+<div class="row">
+	{% for post in site.categories %}
+		{% if page.url contains post[0] %}
+			{% for p in post[1] %}
+				<div class="col-sm-6">
+					<h2 dir="rtl">
+						{{ p.title }}<br>
+						<small>{{ p.date | date_to_string }}</small>
+					</h2>
+					<p>{{ p.content }}</p>
+				</div>
+			{% endfor %}
+		{% endif %}
+	{% endfor %}
+</div>

@@ -1,0 +1,14 @@
+---
+title: نسخه 4.1
+joomla_id: 80
+joomla_url: 4-1
+date: 2013-10-05 08:43:32.000000000 -07:00
+---
+<p dir="rtl">تغییرات در نسخه 4.1:
+	<br>1. بازنویسی تابع setfont برای استفاده از قلم های جدیدی که کنار فایل exe قرار دارند. بدون نیاز به کپی کردن قلم در ویندوز و درگیر کردن سیستم عامل.
+	<br>2. اصلاح توابع image و playsound برای پیغام عدم وجود فایل به جای رد کردن دستور.
+	<br>3. اضافه شدن transparency به تابع setcolor به منظور تنظیم شفافیت.
+</p>
+<p dir="rtl">
+	<br><a href="http://www.mediafire.com/download/9vantxzg9zbcn3o/GraphicBox+v4.1.zip">دانلود</a>
+</p>

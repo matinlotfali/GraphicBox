@@ -1,0 +1,30 @@
+- title: صفحه اصلی
+  url: /index.html
+- title: دانلود
+  sublinks:
+    - title: نسخه های کتابخانه
+      url: /releases/index.html
+    - title: نحوه ارسال پروژه ها
+      url: /how-to-send.html
+    - title: متفرقه
+      url: /others/index.html
+- title: پروژه های مقدماتی
+  sublinks:
+    - title: کلیپ های بدون حلقه
+      url: /clip/index.html
+    - title: کلیپ های با حلقه
+      url: /animation/index.html
+    - title: بازی های ساده دو بعدی
+      url: /simple-games/index.html
+    - title: بازی های پیشرفته دو بعدی
+      url: /advanced-games/index.html
+- title: پروژه های پیشرفته
+  url: /advanced-projects/index.html
+- title: پروژه های پژوهشی
+  url: /research-projects/index.html
+- title: گالری فیلم
+  url: /videos/index.html
+- title: پاسخ های مفید
+  url: /faq/index.html
+- title: درباره ما
+  url: /about.html

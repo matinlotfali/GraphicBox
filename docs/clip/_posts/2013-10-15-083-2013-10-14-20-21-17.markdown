@@ -1,0 +1,33 @@
+---
+layout: post
+title: پروژه های برتر کلیپ های بدون حلقه - پاییز 92
+joomla_id: 83
+joomla_url: 2013-10-14-20-21-17
+date: 2013-10-15 20:21:00.000000000 -07:00
+---
+<h3 dir="rtl">مهدی کریمی نیک: تبلیغ اتوموبیل جدید لامبورگینی</h3>
+<p dir="rtl">
+	<img src="/assets/images/lambo.jpg" />
+	<br><a href="http://www.mediafire.com/download/p3upl71mpjt7mlp/Mahdi_Karimi_Nik_-_LAMBORGINI.rar">دانلود</a>
+</p>
+<hr />
+<h3 dir="rtl">ریحانه شریف زاده: سیاوش قمیشی</h3>
+<p dir="rtl">
+	<img src="/assets/images/sia.jpg" width="320" height="249" />
+	<br /><a href="http://www.mediafire.com/download/5ags1du11laf5zj/Reyhane_Sharifzadeh_-_Ghomeyshi.rar">دانلود</a>
+</p>
+<hr />
+<h3 dir="rtl">آنالی محمدیان: Some One Like You – Adel</h3>
+<p dir="RTL">
+	<a href="http://www.mediafire.com/download/36ah188k5wtndba/Anali_Mohammadian_-_Adel.rar">دانلود</a>
+</p>
+<hr />
+<h3 dir="rtl">فائزه عبدی: نت نویسی و رضا صادقی</h3>
+<p dir="RTL">
+	<a href="http://www.mediafire.com/download/cd8vuym3o71140k/Faeze_Abdi_-_Note_%2B_Reza_Sadeghi.rar">دانلود</a>
+</p>
+<hr />
+<h3 dir="rtl">رئوف قادری: نت نویسی و تاریخچه پیانو</h3>
+<p dir="RTL">
+	<a href="http://www.mediafire.com/download/96ro7dx4ejn7l81/Raoof_Ghaderi_-_History_of_Piano.rar">دانلود</a>
+</p>

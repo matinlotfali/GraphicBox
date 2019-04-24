@@ -1,0 +1,12 @@
+---
+layout: post
+title: نسخه 4.6
+joomla_id: 104
+joomla_url: 4-6
+date: 2014-11-22 18:16:11.000000000 -08:00
+---
+<p style="direction: rtl;">تغییرات اعمال شده در این نسخه </p>
+<p style="direction: rtl;"><span style="line-height: 1.3em;">1.رفع مشکلات مربوط به مدیریت حافظه و ارور های OutOfMemory </span></p>
+<p style="direction: rtl;"><span style="line-height: 1.3em;">2. رفع مشکلات Compatibility در GraphInstaller </span></p>
+<p style="direction: rtl;"><span style="line-height: 1.3em;">3. بهبود پشتیبانی GraphInstaller از ویژوال استودیوی 2013</span></p>
+<p style="direction: rtl;"><a href="http://www.mediafire.com/download/bi5llmhtoek97nj/GraphicBox+v4.6.rar" target="_blank">دانلود</a></p>

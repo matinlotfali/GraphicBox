@@ -1,0 +1,13 @@
+---
+layout: post
+title: نسخه 4.5
+joomla_id: 95
+joomla_url: 4-5
+date: 2014-09-27 17:03:33.000000000 -07:00
+---
+<p dir="rtl">تغییرات اعمال شده در این نسخه 
+	<br />1. پشتیبانی GraphInstaller از ویژوال استودیو 2013
+	<br /> 2. بهینه سازی معماری کتابخانه بر روی دات نت 4
+	<br /> 3. استفاده از پردازش های چند هسته ای برای رسم های سه بعدی
+</p>
+<p dir="rtl"><a href="https://www.mediafire.com/?fodaquk7pbotxq1" target="_blank">دانلود</a></p>

@@ -1,0 +1,22 @@
+---
+layout: post
+title: پروژه های نوشته شده برای کینکت
+joomla_id: 84
+joomla_url: 2013-10-14-20-48-47
+date: 2013-10-14 20:48:47.000000000 -07:00
+---
+<h3 dir="rtl">Kinect Race</h3>
+<p dir="rtl">نویسنده: متین لطفعلی ئی
+	<br>
+	<img src="/assets/images/kinect.jpg" width="317" height="250" />
+	<br>
+	<a href="http://www.mediafire.com/download/b8wbcudcpzji6xp/KinectRace.rar">دانلود</a>
+</p>
+<hr />
+<h3 dir="rtl">Kinect EatFood</h3>
+<p dir= "rtl">نویسنده: علیرضا رحیمیان
+	<br>
+	<img src="/assets/images/kin2.jpg" width="318" height="244" />
+	<br>
+	<a href="http://www.mediafire.com/download/j5homaf2ffg5543/Kinect_EatFood.rar">دانلود</a>
+</p>

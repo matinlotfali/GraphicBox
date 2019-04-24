@@ -1,0 +1,8 @@
+---
+title: نسخه 4.1.1
+joomla_id: 81
+joomla_url: 4-1-1
+date: 2013-10-06 19:58:14.000000000 -07:00
+---
+<p style="text-align: right; direction: rtl;"> حل مشکل مربوط به دستور <span style="line-height: 1.3em;">Playsound</span><span style="line-height: 1.3em;"> </span></p>
+<p style="text-align: right;"><a href="http://www.mediafire.com/download/4ut2gjk9ibbm6v1/GraphicBox_v4.1.1.zip" style="text-align: right;">دانلود</a></p>

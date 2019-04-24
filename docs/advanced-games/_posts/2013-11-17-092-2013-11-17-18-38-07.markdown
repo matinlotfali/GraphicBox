@@ -1,0 +1,36 @@
+---
+layout: post
+title: پروژه های برتر بازی بی درنگ
+joomla_id: 92
+joomla_url: 2013-11-17-18-38-07
+date: 2013-11-17 18:38:07.000000000 -08:00
+---
+<h3 dir="rtl">یونس فیروزی - ماشین تیر انداز</h3>
+<p dir="rtl">
+	<img src="/assets/images/carfiroozi.jpg" border="0" alt="" width="403" height="279" />
+	<br><a href="http://www.mediafire.com/download/h12xxaz6f1sjcc6/Unes%20Firoozi%20-%20Car.rar" target="_blank">دانلود</a></p>
+<hr />
+<h3 dir="rtl">مهیار محسن پور - ماشین تیر انداز</h3>
+<p dir="rtl">
+	<img src="/assets/images/Mahyar_Mohsenpour.jpg" border="0" alt="" width="403" height="279" />
+	<br><a href="http://www.mediafire.com/?1gc9k7g1p9uog7q" target="_blank">دانلود</a></p>
+<hr />
+<h3 dir="rtl">فائزه عبدی - مسابقه ماشین</h3>
+<p dir="rtl">
+	<img src="/assets/images/abdi.jpg" border="0" alt="" width="403" height="279" />
+	<br><a href="http://www.mediafire.com/download/b6tbgb3dkecn3zs/Faeze%20Abdi%20-%20Car.rar" target="_blank">دانلود</a></p>
+<hr />
+<h3 dir="rtl">شیوا نوری - مسابقه ماشین</h3>
+<p dir="rtl">
+	<img src="/assets/images/shiva_noori.jpg" border="0" alt="" width="403" height="279" />
+	<br><a href="http://www.mediafire.com/?apxybbxvvm3c76b" target="_blank">دانلود</a></p>
+<hr />
+<h3 dir="rtl">خشایار و کامیار رنجبر - مسابقه ماشین</h3>
+<p dir="rtl">
+	<img src="/assets/images/Ranjbar.jpg" border="0" alt="" width="403" height="279" />
+	<br><a href="http://www.mediafire.com/download/t8dnx082r8avi48/Ranjbar%2520-%2520Car.rar" target="_blank">دانلود</a></p>
+<hr />
+<h3 dir="rtl">فاطمه طالب توتی - بسکتبال</h3>
+<p dir="rtl">
+	<img src="/assets/images/Fatemeh TalebTooti.png" border="0" alt="" width="403" height="279" />
+	<br><a href="http://www.mediafire.com/download/aj51att0k8mqolq/Fatemeh_Talebtooti_-_Basketball.rar" target="_blank">دانلود</a></p>

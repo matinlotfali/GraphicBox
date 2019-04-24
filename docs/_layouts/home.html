@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<div class="banner-container">
+	<img class="banner" src="assets/banner.jpg" alt="Graphic Box Banner"/>
+</div>
+<div class="container">
+	<div class="col-sm-8">	
+		<div class="page-header">
+			<h1 dir="RTL">{{ page.title }}</h1>
+		</div>      
+		{{ content }}
+	</div>
+	<div dir="rtl" class="col-sm-4">
+		<br>
+		<p dir="RTL"><b>آخرین اخبار</b></p>
+		<hr>
+		<table style="font-size: 0.9em;">
+		{% for post in site.posts limit:10 %}
+			<tr>
+				<td style="padding:5px"><a href="{{ post.url }}">{{ post.title }}</a></td>
+				<td style="padding:5px">{{ post.date | date_to_string }}</td>
+			</tr>
+		{% endfor %}
+		</table>
+	</div>
+</div>

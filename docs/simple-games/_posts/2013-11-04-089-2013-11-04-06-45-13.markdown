@@ -1,0 +1,51 @@
+---
+layout: post
+title: پروژه های برتر بازی ایفای نقش
+joomla_id: 89
+joomla_url: 2013-11-04-06-45-13
+date: 2013-11-04 06:45:13.000000000 -08:00
+---
+<h3 dir="rtl">ریحانه شریف زاده - مار و پله حلقوی</h3>
+<p dir="rtl">
+	<img src="/assets/images/Reyhane_Sharifzade.jpg" width="403" height="279" />
+	<br><a href="http://www.mediafire.com/?cb08y8najy1946t" target="_blank">دانلود</a>
+</p>
+<hr />
+<h3 dir="rtl">یونس فیروزی - لئوی قهرمان</h3>
+<p dir="rtl">
+	<img src="/assets/images/Unes_Firoozi.jpg" width="403" height="279" />
+	<br><a href="http://www.mediafire.com/?iew4p322ca2yu1q" target="_blank">دانلود</a>
+</p>
+<hr />
+<h3 dir="rtl">فائزه عبدی - جنگل ممنوعه</h3>
+<p dir="rtl">
+	<img src="/assets/images/Faeze_Abdi.jpg" width="403" height="279" />
+	<br><a href="http://www.mediafire.com/?bsh332hhqg9buc9" target="_blank">دانلود</a>
+</p>
+<hr />
+<h3 dir="rtl">بهرنگ بهوندی - Blackwing Liar</h3>
+<p dir="rtl">
+	<img src="/assets/images/behrang behvandi.jpg" width="403" height="279" />
+	<br><a href="http://www.mediafire.com/?xri00wnxmddz08s" target="_blank">دانلود</a>
+</p>
+<hr />
+<h3 dir="rtl"> پردیس دهقان - ببعی صورتی</h3>
+<p dir="rtl">
+	<img src="/assets/images/Pardis Dehghan.jpg" width="405" height="316" />
+	<br><a href="http://www.mediafire.com/?mxakugxc63149a7" target="_blank">دانلود</a>
+</p>
+<hr />
+<h3 dir="rtl">شقایق صفری - Final Fantasy</h3>
+<p dir="rtl">
+	<img src="/assets/images/Shaghayegh safari.jpg" />
+	<br><a href="http://www.mediafire.com/?yp96xtc51eu73hy" target="_blank">دانلود</a>
+</p>
+<hr />
+<h3 dir="rtl">مهدی موسوی - بازی قلعه</h3>
+<p dir="rtl">
+	<img src="/assets/images/Mahdi Moosavi.jpg" />
+	<br><a href="http://www.mediafire.com/?o3q10kmtu52i63q" target="_blank">دانلود</a>
+</p>
+<hr />
+<h3 dir="rtl">خشایار و کامیار رنجبر - (Kratos/Sam Fisher/Super Mario) کنسول</h3>
+<p dir="rtl"><a href="http://www.mediafire.com/?t55nt642t854823" target="_blank">دانلود</a></p>

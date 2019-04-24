@@ -1,0 +1,8 @@
+---
+layout: post
+title: آموزش نت خوانی برای استفاده در برنامه
+joomla_id: 78
+joomla_url: 2013-09-22-20-40-19
+date: 2013-09-22 20:40:19.000000000 -07:00
+---
+<p style="text-align: right;"><a href="http://www.mediafire.com/?eaxh99c1shv45m8">دانلود</a></p>

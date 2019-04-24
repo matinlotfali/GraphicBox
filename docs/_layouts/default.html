@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>GraphicBox - {{ page.title }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/styles/bootstrap-font.css">
+  </head>
+  <body id="bootstrap-overrides">
+	<nav class="navbar navbar-inverse navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/index.html">
+					<img src="/assets/icon.png"/>Graphic Box
+				</a>
+			</div>
+    			<ul class="nav navbar-nav">
+				{% assign links = site.data.navigation %}
+				{% for link in links %}
+				    {% assign class = nil %}
+				    {% if page.url == link.url %}
+					{% assign class = 'active' %}
+				    {% endif %}
+				    {% if link.sublinks %}
+					<li class="dropdown {{ class }}">
+					    <a href="{{ site.baseurl }}{{ link.url }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ link.title }} <span class="caret"></span></a>
+					    <ul class="dropdown-menu">
+						{% for sublink in link.sublinks %}
+						    {% if sublink.title == 'separator' %}
+							<li role="separator" class="divider"></li>
+						    {% else %}
+							<li>
+							    <a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a>
+							</li>
+						    {% endif %}
+						{% endfor %}
+					    </ul>
+					</li>
+				    {% else %}
+					<li class="{{ class }}">
+					    <a href="{{ site.baseurl }}{{ link.url }}">{{ link.title }}</a>
+					</li>
+				    {% endif %}
+				{% endfor %}
+			    </ul>
+		</div>
+   </nav>
+   {{ content }}
+   <br>
+   <footer class="container-fluid text-center">
+	<br>
+	<p>Posted by: {{ site.postedby }}</p>
+	<p>Contact information: <a href="mailto:{{ site.email }}">
+	  {{ site.email }}</a>.</p>
+   </footer>
+</body>
+</html>

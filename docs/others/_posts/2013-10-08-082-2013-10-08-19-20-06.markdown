@@ -1,0 +1,8 @@
+---
+layout: post
+title: نمونه پروژه های مربوط به انتصاب
+joomla_id: 82
+joomla_url: 2013-10-08-19-20-06
+date: 2013-10-08 19:20:06.000000000 -07:00
+---
+<p style="text-align: right;"><a href="http://www.mediafire.com/?nco1ghn3kdhc52z">دانلود</a></p>

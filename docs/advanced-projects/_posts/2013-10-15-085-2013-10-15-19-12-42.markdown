@@ -1,0 +1,38 @@
+---
+layout: post
+title: پروژه های نوشته شده توسط طراحان گرافیک باکس
+joomla_id: 85
+joomla_url: 2013-10-15-19-12-42
+date: 2013-10-15 19:12:42.000000000 -07:00
+---
+<h3 dir="rtl">شبیه ساز آتش</h3>
+<p dir="rtl">نویسنده: متین لطفعلی ئی
+	<br>
+	<img src="/assets/images/atash.jpg" width="241" height="254" />
+	<br>
+	<a href="http://www.mediafire.com/download/2rxkc118s0nqrx5/Fire.rar" target="_blank">دانلود</a>
+</p>
+<hr />
+<h3 dir="rtl">پینگ پنگ سه بعدی آناگلیف<small> (نیاز به عینک آبی قرمز دارد)</small></h3>
+<p dir="rtl">نویسنده: محسن ضیاآبادی
+	<br><img src="/assets/images/ping.jpg" width="246" height="181" />
+	<br><a href="http://www.mediafire.com/download/5vcpy1bf3phlfzr/3DPingPong.rar" target="_blank">دانلود</a>
+</p>
+<hr />
+<h3 dir="rtl">بازی مار</h3>
+<p dir="rtl">نویسنده: متین لطفعلی ئی
+	<br><img src="/assets/images/mar.jpg" width="252" height="273" />
+	<br><a href="http://www.mediafire.com/download/061z4ti24br1amp/Snake.rar" target="_blank">دانلود</a>
+</p>
+<hr />
+<h3 dir="rtl">بازی شطرنج<small> (هوش مصنوعی)</small></h3>
+<p dir="rtl">نویسنده: متین لطفعلی ئی
+	<br><img src="/assets/images/chess.jpg" width="252" height="263" />
+	<br><a href="http://www.mediafire.com/download/p3403p4pow7j5tq/Chess.rar" target="_blank">دانلود</a>
+</p>
+<hr />
+<h3 dir="RTL">بازی پنج تایی<small> (هوش مصنوعی)</small></h3>
+<p dir="rtl">نویسنده: متین لطفعلی ئی
+	<br><img src="/assets/images/panj.jpg" border="0" alt="" width="255" height="255" />
+	<br><a href="http://www.mediafire.com/download/svhk5y53mih9236/Pente_v2.exe" target="_blank">دانلود</a>
+</p>

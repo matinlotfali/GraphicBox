@@ -1,0 +1,13 @@
+---
+layout: post
+title: دموی فایل ها برای تلویزیون های سه بعدی
+joomla_id: 98
+joomla_url: 2014-10-12-21-23-07
+date: 2014-10-12 21:23:07.000000000 -07:00
+---
+
+<p style="text-align: center;">
+	<a href="http://hw7.asset.aparat.com/aparat-video/9bee830ae7000db80fb041e1e712d8af1677004.mp4">دانلود ویدئو</a>
+	<br>
+	<iframe src="http://www.aparat.com/video/video/embed/videohash/HMl16/vt/frame" width="640" height="360"></iframe>
+</p>

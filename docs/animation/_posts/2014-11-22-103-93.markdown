@@ -1,0 +1,41 @@
+---
+layout: post
+title: پروژه های برتر کلیپ های با حلقه - پاییز 93
+joomla_id: 103
+joomla_url: '93'
+date: 2014-11-22 18:12:36.000000000 -08:00
+---
+<h3 dir="rtl">1. آرین نیکنامی - پیتزا فضایی</h3>
+<p dir="rtl">(با 24 نوع تنوع حرکت و 78 حلقه و استفاده از معادلات)
+	<br><a href="https://www.dropbox.com/s/hqnalw06c7d10j4/animation1.rar?dl=0" target="_blank">دانلود</a>
+</p>
+<hr>
+<h3 dir="rtl">2. میلاد منفرد - 3 پروژه</h3>
+<p dir="rtl">(جمعا با 14 نوع تنوع حرکت و 59 حلقه و 2 مورد استفاده از معادلات)
+	<br>چادر شرلوک هلمز
+	<br><a href="https://www.dropbox.com/s/yaz2bip5su8y1ls/SherlockHolmes.rar?dl=0" target="_blank">دانلود</a>
+	<br>ساعت آنالوگ و دیجیتال همراه با تاریخ و اعلام وقت بخیر
+	<br><a href="https://www.dropbox.com/s/37z0y8sl41kr9i3/moreclock%20v2.rar?dl=0" target="_blank" style="line-height: 1.3em;">دانلود</a>
+	<br>سقوط آزاد با دریافت سرعت اولیه از کاربر
+	<br><a href="https://www.dropbox.com/s/w160yduxd5edlg7/soghootAzad.rar?dl=0" target="_blank" style="line-height: 1.3em;">دانلود</a>
+</p>
+<hr>
+<h3 dir="rtl">3. مرضیه جلیلی - عشق چوپان دروغگو</h3>
+<p dir="rtl">(با 17 نوع تنوع حرکت و 108 حلقه)
+	<br><a href="https://www.dropbox.com/s/axu6pxw7agdphbc/choopan%20dorooghgoo.zip?dl=0" target="_blank" style="line-height: 1.3em;">دانلود</a>
+</p>
+<hr>
+<h3 dir="rtl">4. کامران اقلامی - فی البداهه/برف بازی</h3>
+<p dir="rtl">(با 22 نوع تنوع حرکت و 33 حلقه)
+	<br><a href="http://s5.picofile.com/file/8148923550/Kamran_Aghlami.rar.html" target="_blank" style="line-height: 1.3em;">دانلود</a>
+</p>
+<hr>
+<h3 dir="rtl">5. سعید عرفانی - رسم های نقطه ای</h3>
+<p dir="rtl">(با 19 نوع تنوع حرکت و 61 حلقه و سرشار از معادلات)
+	<br><a href="https://www.dropbox.com/s/eb02biacvma3in2/saeed%20erfani.rar?dl=0" target="_blank" style="line-height: 1.3em;">دانلود</a>
+</p>
+<hr>
+<h3 dir="rtl">6. مرجان تقی زاده - کلاس درس</h3>
+<p dir="rtl">(با 21 نوع تنوع حرکت و 51 حلقه)
+	<br><a href="https://drive.google.com/file/d/0B1W-8gFf0MJ8YnlUYkNkcjc4M1U/view?usp=sharing" target="_blank" style="line-height: 1.3em;">دانلود</a>
+</p>

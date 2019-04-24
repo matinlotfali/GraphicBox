@@ -1,0 +1,50 @@
+---
+layout: post
+title: "پروژه های برتر کلیپ های بدون حلقه - پاییز 93"
+joomla_id: 102
+joomla_url: clips-93
+date: 2014-10-24 17:37:08.000000000 -07:00
+---
+<h3 dir="rtl">علی درم بخش - کلیپ بازی و آهنگ سوپر ماریو با نت نویسی</h3>
+<p dir="rtl">
+	<a href="https://www.dropbox.com/s/cqghyscx0akabgz/Ali%20Derambakhsh%20Clip.rar?dl=0" target="_blank">دانلود</a>
+	<br><img src="/assets/images/Ali-Deram-Bakhsh-Super-Mario.jpg" width="300" height="200"/>
+</p>
+<hr />
+<h3 dir="rtl">میلاد منفرد - مجموعه کامل هری پاتر</h3>
+<p dir="rtl">
+	<a href="https://www.dropbox.com/s/uu01k31f7a6kgor/harrypotter01.rar?dl=0" target="_blank">دانلود</a>
+	<br><img src="/assets/images/milad-monfared-harry-potter.jpg" width="300" height="200"/>
+</p>
+<hr />
+<h3 dir="rtl">میلاد منفرد - سه بعدی آناگلیف</h3>
+<p dir="rtl">
+	<a href="https://www.dropbox.com/s/uoxh3z0x9n8c6cy/test3d.rar?dl=0" target="_blank">دانلود</a>
+	<br><img src="/assets/images/milad-monfared-3d.jpg" width="300" height="200" />
+</p>
+<hr />
+<h3 style="direction: rtl;">امیرمهدی شاملو - مایکل جکسون</h3>
+<p style="direction: rtl; line-height: 1.3em;">
+	<a href="https://www.dropbox.com/s/6hh2w1vcpc697db/Michael.rar?dl=0" target="_blank" style="line-height: 1.3em;">دانلود</a>
+</p>
+<hr />
+<h3 style="direction: rtl;"><span style="line-height: 1.3em;">مهرناز قشم پور - دلتنگی بابک جهان بخش</span></h3>
+<p style="direction: rtl; line-height: 1.3em;"><a href="https://www.dropbox.com/sh/ac99fyxa4zywcwj/AABJHTzVmisncr3RpzfdbeESa/clip.zip?dl=0" target="_blank" style="line-height: 1.3em;">دانلود</a><span style="line-height: 1.3em;"> </span></p>
+<hr />
+<h3 style="direction: rtl;"><span style="line-height: 1.3em;">رادین منشیان - بزرگترین کلوپ های دنیا</span></h3>
+<p style="direction: rtl; line-height: 1.3em;"><a href="https://www.dropbox.com/s/3zd4mj606l8pxq5/Radin%20Monshian%20(Club%20Project)%20(2).rar?dl=0" target="_blank" style="line-height: 1.3em;">دانلود</a><span style="line-height: 1.3em;"> </span></p>
+<hr />
+<h3 style="direction: rtl;"><span style="line-height: 1.3em;">صدف فرهودی - جذابیت های فضا</span></h3>
+<p style="direction: rtl; line-height: 1.3em;"><a href="https://www.dropbox.com/s/jph93wim9h12zt4/finally.zip?dl=0" target="_blank" style="line-height: 1.3em;">دانلود</a><span style="line-height: 1.3em;"> </span></p>
+<hr />
+<h3 style="direction: rtl;"><span style="line-height: 1.3em;">کوروش بهمنی - جنگ</span></h3>
+<p style="direction: rtl; line-height: 1.3em;"><a href="https://www.dropbox.com/s/llgdjw04kf8ph93/koorosh%20bahmani.rar?n=348831204" target="_blank" style="line-height: 1.3em;">دانلود</a><span style="line-height: 1.3em;"> </span></p>
+<hr />
+<h3 style="direction: rtl;"><span style="line-height: 1.3em;">آرزو صادقی - Hello Evanescence</span></h3>
+<p style="direction: rtl; line-height: 1.3em;"><a href="https://www.dropbox.com/s/f08j4lvqr2jjiyy/Hello.zip?dl=0" target="_blank" style="line-height: 1.3em;">دانلود</a><span style="line-height: 1.3em;"> </span></p>
+<hr />
+<h3 style="direction: rtl;"><span style="line-height: 1.3em;">شقایق امیریان - تیم ملی والیبال ایران</span></h3>
+<p style="direction: rtl; line-height: 1.3em;"><a href="https://www.dropbox.com/sh/vay2t190hanmawz/AAClv5T5I16T5P-x3WWqwJq0a/clip1.rar?dl=0" target="_blank" style="line-height: 1.3em;">دانلود</a><span style="line-height: 1.3em;"> </span></p>
+<hr />
+<h3 style="direction: rtl;"><span style="line-height: 1.3em;">مائده جمالپور مطلق - آموزه های طبیعت</span></h3>
+<p style="direction: rtl; line-height: 1.3em;"><a href="https://www.dropbox.com/s/9q98a57c082oyqv/nature.rar?dl=0" target="_blank" style="line-height: 1.3em;">دانلود</a></p>
