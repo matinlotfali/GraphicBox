@@ -7,20 +7,20 @@ date: 2014-02-15 19:38:48.000000000 -08:00
 ---
 <h3 dir="rtl">یونس فیروزی - BreakoutGame بازی فوتبال پارانوید</h3>
 <p dir="rtl">
-	<img src="/assets/images/Unes Firoozi - breakoutgame.JPG" border="0" alt="" width="403" height="279" />
+	<img src="{{ site.baseurl }}/assets/images/Unes Firoozi - breakoutgame.JPG" border="0" alt="" width="403" height="279" />
 	<br><a href="http://www.mediafire.com/download/tgttn2lrumyx844/Unes_Firoozi_-_breakoutgame.rar" target="_blank">دانلود</a></p>
 <hr />
 <h3 dir="rtl">مهدی موسوی - بازی سفینه فضایی</h3>
 <p dir="rtl">
-	<img src="/assets/images/Mahdi Moosavi - game.jpg" border="0" alt="" width="403" height="279" />
+	<img src="{{ site.baseurl }}/assets/images/Mahdi Moosavi - game.jpg" border="0" alt="" width="403" height="279" />
 	<br><a href="http://www.mediafire.com/download/l88cj810yp5cqik/Mahdi_Moosavi_-_game.rar" target="_blank">دانلود</a></p>
 <hr />
 <h3 dir="rtl">محمد کریمی نیک - بازی لامبورگینی پارانوید</h3>
 <p dir="rtl">
-	<img src="/assets/images/Mohammad Karimi Nik - lamborghini.jpg" border="0" alt="" width="403" height="279" />
+	<img src="{{ site.baseurl }}/assets/images/Mohammad Karimi Nik - lamborghini.jpg" border="0" alt="" width="403" height="279" />
 	<br><a href="http://www.mediafire.com/download/6nbbhd8by774e5a/Mohammad_Karimi_Nik_-_lamborghini.rar" target="_blank">دانلود</a></p>
 <hr />
 <h3 dir="rtl">محمد کریمی نیک - بازی پارانوید 4 نفره</h3>
 <p dir="rtl">
-	<img src="/assets/images/Mohammad Karimi Nik - palyer.jpg" border="0" alt="" width="403" height="279" />
+	<img src="{{ site.baseurl }}/assets/images/Mohammad Karimi Nik - palyer.jpg" border="0" alt="" width="403" height="279" />
 	<br><a href="http://www.mediafire.com/download/r3yll4pm15jnyul/Mohammad_Karimi_Nik_-_palyer.rar" target="_blank">دانلود</a></p>

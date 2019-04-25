@@ -7,13 +7,13 @@ date: 2013-10-15 20:21:00.000000000 -07:00
 ---
 <h3 dir="rtl">مهدی کریمی نیک: تبلیغ اتوموبیل جدید لامبورگینی</h3>
 <p dir="rtl">
-	<img src="/assets/images/lambo.jpg" />
+	<img src="{{ site.baseurl }}/assets/images/lambo.jpg" />
 	<br><a href="http://www.mediafire.com/download/p3upl71mpjt7mlp/Mahdi_Karimi_Nik_-_LAMBORGINI.rar">دانلود</a>
 </p>
 <hr />
 <h3 dir="rtl">ریحانه شریف زاده: سیاوش قمیشی</h3>
 <p dir="rtl">
-	<img src="/assets/images/sia.jpg" width="320" height="249" />
+	<img src="{{ site.baseurl }}/assets/images/sia.jpg" width="320" height="249" />
 	<br /><a href="http://www.mediafire.com/download/5ags1du11laf5zj/Reyhane_Sharifzadeh_-_Ghomeyshi.rar">دانلود</a>
 </p>
 <hr />

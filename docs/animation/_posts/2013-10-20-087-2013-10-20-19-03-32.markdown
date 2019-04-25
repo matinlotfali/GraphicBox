@@ -7,54 +7,54 @@ date: 2013-10-20 19:03:32.000000000 -07:00
 ---
 <h3 dir="rtl">یونس فیروزی - در حد توان</h3>
 <p dir="rtl">
-	<img src="/assets/images/Unes Firoozi.jpg" width="308" height="213" />
+	<img src="{{ site.baseurl }}/assets/images/Unes Firoozi.jpg" width="308" height="213" />
 	<br><a href="http://www.mediafire.com/download/llq3dqn5p7ssie7/Parande_-_Unes_Firoozi.rar">دانلود</a>
 </p>
 <hr />
 <h3 dir="rtl">ریحانه شریف زاده</h3>
 <p dir="rtl">
-	<img src="/assets/images/ty.jpg" width="261" height="164" />
+	<img src="{{ site.baseurl }}/assets/images/ty.jpg" width="261" height="164" />
 	<br><a href="http://www.mediafire.com/download/xbx1017jjq9bnxu/Reyhaneh_Sharifzadeh_-_animation.rar">دانلود</a>
 </p>
 <hr />
 <h3 dir="rtl">پردیس دهقان: تولد ببعی ها</h3>
 <p dir="rtl">
-	<img src="/assets/images/babai.jpg" width="263" height="205" />
+	<img src="{{ site.baseurl }}/assets/images/babai.jpg" width="263" height="205" />
 	<br><a href="http://www.mediafire.com/download/zxes69vvfhb16ez/Pardis_Dehghan_-_animation.rar">دانلود</a>
 </p>
 <hr />
 <h3 dir="rtl">ماهان میرزایی: پرتاب توپ ها با معادله</h3>
 <p dir="rtl">
-	<img src="/assets/images/moadel.jpg" width="265" height="207" />
+	<img src="{{ site.baseurl }}/assets/images/moadel.jpg" width="265" height="207" />
 	<br><a href="http://www.mediafire.com/download/sqp16eyqcdl6l41/Mahan_Mirzaei_-_Partaab.rar">دانلود</a>
 </p>
 <hr />
 <h3 dir="rtl">ساجده مقدم: پارک و کافی شاپ و سینما</h3>
 <p dir="rtl">(متین لطفعلی ئی: خدایا توبه بابت این آپلود)
-	<br><img src="/assets/images/kafi.jpg" width="270" height="183" />
+	<br><img src="{{ site.baseurl }}/assets/images/kafi.jpg" width="270" height="183" />
 	<br><a href="http://www.mediafire.com/download/cpm9k442tnw34fe/Sajedeh_Moghadam_-_animation1.rar">دانلود</a>
 </p>
 <hr />
 <h3 dir="rtl">امید دولت کیا: ساعت با معادله</h3>
 <p dir="rtl">
-	<img src="/assets/images/saat.jpg" width="263" height="272" />
+	<img src="{{ site.baseurl }}/assets/images/saat.jpg" width="263" height="272" />
 	<br><a href="http://www.mediafire.com/download/8l1kkmk9zdclm3t/Omid_Dolatkia_-_Clock.rar">دانلود</a>
 </p>
 <hr />
 <h3 dir="rtl">محمد گرمابدری: کاریکاتور ها</h3>
 <p dir="rtl">
-	<img src="/assets/images/kari.jpg" width="257" height="201" />
+	<img src="{{ site.baseurl }}/assets/images/kari.jpg" width="257" height="201" />
 	<br><a href="http://www.mediafire.com/download/4uhhilqze5qp4c5/Mohammad_Garmabdari_-_Karikator.rar">دانلود</a>
 </p>
 <hr />
 <h3 dir="rtl">مهیار محسن پور: خروس و روباه در زمان صلح</h3>
 <p dir="rtl">
-	<img src="/assets/images/khoros.jpg" width="260" height="204" />
+	<img src="{{ site.baseurl }}/assets/images/khoros.jpg" width="260" height="204" />
 	<br><a href="http://www.mediafire.com/download/a46r6zwfwd1yico/Mahyar_Mohsenpour_-_KHOOROOS.rar">دانلود</a>
 </p>
 <hr />
 <h3 dir="rtl">مهدی موسوی: کلاس درس استاد هاشمیان</h3>
 <p dir="rtl">
-	<img src="/assets/images/kelas.jpg" width="262" height="273" />
+	<img src="{{ site.baseurl }}/assets/images/kelas.jpg" width="262" height="273" />
 	<br><a href="http://www.mediafire.com/download/o9san0601739057/Mahdi_Moosavi_-_Kelas_Hashemian.rar">دانلود</a>
 </p>
