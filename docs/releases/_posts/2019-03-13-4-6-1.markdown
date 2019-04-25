@@ -1,0 +1,9 @@
+---
+layout: post
+title: نسخه 4.6.1
+joomla_id: 104
+joomla_url: 4-6
+date: 2019-03-13
+---
+<p style="direction: rtl;">امکان استفاده از GraphInstaller برای نسخه های جدیدتر Visual Studio</p>
+<p style="direction: rtl;"><a href="https://github.com/matinlotfali/GraphicBox/releases/download/v4.6.1/GraphicBox.v4.6.1.rar" target="_blank">دانلود</a></p>
