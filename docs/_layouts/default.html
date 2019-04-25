@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="{{ site.url }}/styles/bootstrap-font.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/styles/bootstrap-font.css">
   </head>
   <body id="bootstrap-overrides">
 	<nav class="navbar navbar-inverse navbar-static-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="{{ site.url }}/index.html">
-					<img src="{{ site.url }}/assets/icon.png"/>Graphic Box
+				<a class="navbar-brand" href="{{ site.baseurl }}/index.html">
+					<img src="{{ site.baseurl }}/assets/icon.png"/>Graphic Box
 				</a>
 			</div>
     			<ul class="nav navbar-nav">
@@ -25,14 +25,14 @@
 				    {% endif %}
 				    {% if link.sublinks %}
 					<li class="dropdown {{ class }}">
-					    <a href="{{ site.url }}{{ link.url }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ link.title }} <span class="caret"></span></a>
+					    <a href="{{ site.baseurl }}{{ link.url }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ link.title }} <span class="caret"></span></a>
 					    <ul class="dropdown-menu">
 						{% for sublink in link.sublinks %}
 						    {% if sublink.title == 'separator' %}
 							<li role="separator" class="divider"></li>
 						    {% else %}
 							<li>
-							    <a href="{{ site.url }}{{ sublink.url }}">{{ sublink.title }}</a>
+							    <a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a>
 							</li>
 						    {% endif %}
 						{% endfor %}
@@ -40,7 +40,7 @@
 					</li>
 				    {% else %}
 					<li class="{{ class }}">
-					    <a href="{{ site.url }}{{ link.url }}">{{ link.title }}</a>
+					    <a href="{{ site.baseurl }}{{ link.url }}">{{ link.title }}</a>
 					</li>
 				    {% endif %}
 				{% endfor %}
