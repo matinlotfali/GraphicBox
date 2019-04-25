@@ -1,30 +1,30 @@
 - title: صفحه اصلی
-  url: "{{ site.baseurl }}/index.html"
+  url: "/index.html"
 - title: دانلود
   sublinks:
     - title: نسخه های کتابخانه
-      url: "{{ site.baseurl }}/releases/index.html"
+      url: "/releases/index.html"
     - title: نحوه ارسال پروژه ها
-      url: "{{ site.baseurl }}/how-to-send.html"
+      url: "/how-to-send.html"
     - title: متفرقه
-      url: "{{ site.baseurl }}/others/index.html"
+      url: "/others/index.html"
 - title: پروژه های مقدماتی
   sublinks:
     - title: کلیپ های بدون حلقه
-      url: "{{ site.baseurl }}/clip/index.html"
+      url: "/clip/index.html"
     - title: کلیپ های با حلقه
-      url: "{{ site.baseurl }}/animation/index.html"
+      url: "/animation/index.html"
     - title: بازی های ساده دو بعدی
-      url: "{{ site.baseurl }}/simple-games/index.html"
+      url: "/simple-games/index.html"
     - title: بازی های پیشرفته دو بعدی
-      url: "{{ site.baseurl }}/advanced-games/index.html"
+      url: "/advanced-games/index.html"
 - title: پروژه های پیشرفته
-  url: "{{ site.baseurl }}/advanced-projects/index.html"
+  url: "/advanced-projects/index.html"
 - title: پروژه های پژوهشی
-  url: "{{ site.baseurl }}/research-projects/index.html"
+  url: "/research-projects/index.html"
 - title: گالری فیلم
-  url: "{{ site.baseurl }}/videos/index.html"
+  url: "/videos/index.html"
 - title: پاسخ های مفید
-  url: "{{ site.baseurl }}/faq/index.html"
+  url: "/faq/index.html"
 - title: درباره ما
-  url: "{{ site.baseurl }}/about.html"
+  url: "/about.html"
